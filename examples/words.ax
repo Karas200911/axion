@@ -1,0 +1,25 @@
+# The three most frequent words: text, a dictionary, a sort by two fields, while, exit.
+input line: text
+words = line lower split " "
+if words length == 0
+  print "no words"
+  exit
+end
+counts = {} of number
+for w in words
+  word = w trim
+  if word == ""
+    continue
+  end
+  counts[word] = if counts contains word then counts[word] + 1 else 1
+end
+rows = [] of {word: text, times: number}
+for word in counts keys
+  rows add {word: word, times: counts[word]}
+end
+place = 0
+top = rows sort by times descending, word
+while place < top length and place < 3
+  print top[place].word + ": " + top[place].times as text
+  place = place + 1
+end

@@ -1,0 +1,136 @@
+input lines: list of text
+
+function prec(op: text) -> number
+  if op == "+" or op == "-"
+    return 1
+  else if op == "*" or op == "/"
+    return 2
+  else if op == "neg"
+    return 3
+  else if op == "^"
+    return 4
+  end
+  return 0
+end
+
+function calc(op: text, a: number, b: number) -> number
+  if op == "+"
+    return a + b
+  else if op == "-"
+    return a - b
+  else if op == "*"
+    return a * b
+  else if op == "/"
+    return a / b
+  end
+  return a ** b
+end
+
+for ln in lines
+  toks = [] of {k: text, n: number, p: number}
+  msg = ""
+  src = ln + " "
+  size = ln length
+  i = 0
+  while i < size and msg == ""
+    ch = src[i]
+    if ch == " "
+      i = i + 1
+    else if ch >= "0" and ch <= "9"
+      j = i
+      while src[j] == "." or (src[j] >= "0" and src[j] <= "9")
+        j = j + 1
+      end
+      piece = src[i to j - 1]
+      toks add {k: "num", n: piece as number, p: i + 1}
+      i = j
+    else if ch == "+" or ch == "-" or ch == "*" or ch == "/" or ch == "^" or ch == "(" or ch == ")"
+      toks add {k: ch, n: 0, p: i + 1}
+      i = i + 1
+    else
+      msg = "ошибка: неизвестный символ '" + ch + "', позиция " + (i + 1) as text
+    end
+  end
+  if msg == ""
+    if toks length == 0
+      msg = "ошибка: пустое выражение"
+    else
+      toks add {k: "end", n: 0, p: size + 1}
+      vals = [] of number
+      ops = [] of text
+      expect = true
+      for t in toks
+        if t.k == "num"
+          if expect
+            vals add t.n
+            expect = false
+          else
+            msg = "ошибка: ожидалось число, позиция " + t.p as text
+          end
+        else if t.k == "("
+          if expect
+            ops add "("
+          else
+            msg = "ошибка: ожидалось число, позиция " + t.p as text
+          end
+        else if t.k == "-" and expect
+          ops add "neg"
+        else if expect
+          msg = "ошибка: ожидалось число, позиция " + t.p as text
+        else
+          p0 = if t.k == ")" or t.k == "end" then 0 else prec(t.k)
+          go = true
+          while go and ops length > 0
+            top = ops[ops length - 1]
+            if top == "("
+              go = false
+            else if prec(top) > p0 or (prec(top) == p0 and t.k != "^")
+              ops remove index ops length - 1
+              if top == "neg"
+                a = vals[vals length - 1]
+                vals remove index vals length - 1
+                vals add a * (-1)
+              else
+                b = vals[vals length - 1]
+                vals remove index vals length - 1
+                a = vals[vals length - 1]
+                vals remove index vals length - 1
+                if top == "/" and b == 0
+                  msg = "ошибка: деление на ноль"
+                  go = false
+                else
+                  vals add calc(top, a, b)
+                end
+              end
+            else
+              go = false
+            end
+          end
+          if msg == ""
+            if t.k == ")"
+              if ops length == 0
+                msg = "ошибка: ожидалось число, позиция " + t.p as text
+              else
+                ops remove index ops length - 1
+              end
+            else if t.k == "end"
+              if ops length > 0
+                msg = "ошибка: не закрыта скобка"
+              end
+            else
+              ops add t.k
+              expect = true
+            end
+          end
+        end
+        if msg != ""
+          break
+        end
+      end
+      if msg == ""
+        msg = vals[0] as text
+      end
+    end
+  end
+  print msg
+end

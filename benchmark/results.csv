@@ -1,0 +1,631 @@
+task,program,language,case,kind,outcome,seconds,detail
+1_log,axion_run1.ax,axion,log is a number,wrong type,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got a number."
+1_log,axion_run1.ax,axion,log is a list of lines,wrong type,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got an array."
+1_log,axion_run1.ax,axion,log is null,null,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got null."
+1_log,axion_run1.ax,axion,no log at all,missing,stopped,0.1,ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / input log was not provided.
+1_log,axion_run1.ax,axion,"data is a list, not an object",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input log: text / ^ / The input data must be a JSON object: {""name"": value}."
+1_log,axion_run1.ax,axion,an extra field,extra field,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^ / The input data has debug, which the program does not declare."
+1_log,axion_run1.ax,axion,"100,000 lines of log",big but valid,stopped,3.01,ERROR R406 line 4:3 /   for ch in s /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+1_log,axion_run2.ax,axion,log is a number,wrong type,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got a number."
+1_log,axion_run2.ax,axion,log is a list of lines,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got an array."
+1_log,axion_run2.ax,axion,log is null,null,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got null."
+1_log,axion_run2.ax,axion,no log at all,missing,stopped,0.08,ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / input log was not provided.
+1_log,axion_run2.ax,axion,"data is a list, not an object",wrong shape,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^ / The input data must be a JSON object: {""name"": value}."
+1_log,axion_run2.ax,axion,an extra field,extra field,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^ / The input data has debug, which the program does not declare."
+1_log,axion_run2.ax,axion,"100,000 lines of log",big but valid,stopped,3.2,ERROR R406 line 8:5 /     if not (chars contains ch) /     ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+1_log,axion_run3.ax,axion,log is a number,wrong type,stopped,0.07,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got a number."
+1_log,axion_run3.ax,axion,log is a list of lines,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got an array."
+1_log,axion_run3.ax,axion,log is null,null,stopped,0.08,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got null."
+1_log,axion_run3.ax,axion,no log at all,missing,stopped,0.08,ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / input log was not provided.
+1_log,axion_run3.ax,axion,"data is a list, not an object",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input log: text / ^ / The input data must be a JSON object: {""name"": value}."
+1_log,axion_run3.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^ / The input data has debug, which the program does not declare."
+1_log,axion_run3.ax,axion,"100,000 lines of log",big but valid,stopped,4.15,"ERROR R406 line 85:7 /       hk = ln[0 to 9] + "" "" + ln[11 to 12] + "":00"" /       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy)."
+1_log,axion_run4.ax,axion,log is a number,wrong type,stopped,0.11,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got a number."
+1_log,axion_run4.ax,axion,log is a list of lines,wrong type,stopped,0.07,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got an array."
+1_log,axion_run4.ax,axion,log is null,null,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got null."
+1_log,axion_run4.ax,axion,no log at all,missing,stopped,0.09,ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / input log was not provided.
+1_log,axion_run4.ax,axion,"data is a list, not an object",wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^ / The input data must be a JSON object: {""name"": value}."
+1_log,axion_run4.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^ / The input data has debug, which the program does not declare."
+1_log,axion_run4.ax,axion,"100,000 lines of log",big but valid,stopped,3.87,ERROR R406 line 16:3 /   for k in positions /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+1_log,axion_run5.ax,axion,log is a number,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got a number."
+1_log,axion_run5.ax,axion,log is a list of lines,wrong type,stopped,0.1,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got an array."
+1_log,axion_run5.ax,axion,log is null,null,stopped,0.09,"ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / Input data: log must be text, got null."
+1_log,axion_run5.ax,axion,no log at all,missing,stopped,0.08,ERROR R407 line 1:1 / input log: text / ^^^^^^^^^^^^^^^ / input log was not provided.
+1_log,axion_run5.ax,axion,"data is a list, not an object",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input log: text / ^ / The input data must be a JSON object: {""name"": value}."
+1_log,axion_run5.ax,axion,an extra field,extra field,stopped,0.06,"ERROR R407 line 1:1 / input log: text / ^ / The input data has debug, which the program does not declare."
+1_log,axion_run5.ax,axion,"100,000 lines of log",big but valid,stopped,3.72,ERROR R406 line 26:5 /     if not (digits contains s[i]) /     ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+1_log,python_run1.py,python,log is a number,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'split'
+1_log,python_run1.py,python,log is a list of lines,wrong type,stopped,0.06,AttributeError: 'list' object has no attribute 'split'
+1_log,python_run1.py,python,log is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'split'
+1_log,python_run1.py,python,no log at all,missing,stopped,0.05,KeyError: 'log'
+1_log,python_run1.py,python,"data is a list, not an object",wrong shape,stopped,0.05,"TypeError: list indices must be integers or slices, not str"
+1_log,python_run1.py,python,an extra field,extra field,right,0.03,
+1_log,python_run1.py,python,"100,000 lines of log",big but valid,right,0.15,
+1_log,python_run2.py,python,log is a number,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'split'
+1_log,python_run2.py,python,log is a list of lines,wrong type,stopped,0.03,AttributeError: 'list' object has no attribute 'split'
+1_log,python_run2.py,python,log is null,null,stopped,0.03,AttributeError: 'NoneType' object has no attribute 'split'
+1_log,python_run2.py,python,no log at all,missing,stopped,0.03,KeyError: 'log'
+1_log,python_run2.py,python,"data is a list, not an object",wrong shape,stopped,0.03,"TypeError: list indices must be integers or slices, not str"
+1_log,python_run2.py,python,an extra field,extra field,right,0.02,
+1_log,python_run2.py,python,"100,000 lines of log",big but valid,right,0.14,
+1_log,python_run3.py,python,log is a number,wrong type,stopped,0.03,AttributeError: 'int' object has no attribute 'split'
+1_log,python_run3.py,python,log is a list of lines,wrong type,stopped,0.03,AttributeError: 'list' object has no attribute 'split'
+1_log,python_run3.py,python,log is null,null,stopped,0.03,AttributeError: 'NoneType' object has no attribute 'split'
+1_log,python_run3.py,python,no log at all,missing,stopped,0.03,KeyError: 'log'
+1_log,python_run3.py,python,"data is a list, not an object",wrong shape,stopped,0.03,"TypeError: list indices must be integers or slices, not str"
+1_log,python_run3.py,python,an extra field,extra field,right,0.02,
+1_log,python_run3.py,python,"100,000 lines of log",big but valid,right,0.15,
+1_log,python_run4.py,python,log is a number,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'split'
+1_log,python_run4.py,python,log is a list of lines,wrong type,stopped,0.04,AttributeError: 'list' object has no attribute 'split'
+1_log,python_run4.py,python,log is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'split'
+1_log,python_run4.py,python,no log at all,missing,stopped,0.04,KeyError: 'log'
+1_log,python_run4.py,python,"data is a list, not an object",wrong shape,stopped,0.04,"TypeError: list indices must be integers or slices, not str"
+1_log,python_run4.py,python,an extra field,extra field,right,0.03,
+1_log,python_run4.py,python,"100,000 lines of log",big but valid,right,0.16,
+1_log,python_run5.py,python,log is a number,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'split'
+1_log,python_run5.py,python,log is a list of lines,wrong type,stopped,0.03,AttributeError: 'list' object has no attribute 'split'
+1_log,python_run5.py,python,log is null,null,stopped,0.03,AttributeError: 'NoneType' object has no attribute 'split'
+1_log,python_run5.py,python,no log at all,missing,stopped,0.03,KeyError: 'log'
+1_log,python_run5.py,python,"data is a list, not an object",wrong shape,stopped,0.03,"TypeError: list indices must be integers or slices, not str"
+1_log,python_run5.py,python,an extra field,extra field,right,0.02,
+1_log,python_run5.py,python,"100,000 lines of log",big but valid,right,0.13,
+2_schedule,axion_run1.ax,axion,total is a number 100.1,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^^^^^^^^^^^^^^^^^ / Input data: total must be text, got a number."
+2_schedule,axion_run1.ax,axion,"n is text ""3""",wrong type,stopped,0.07,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got text."
+2_schedule,axion_run1.ax,axion,n is 2.5,wrong type,stopped,0.07,ERROR R402 line 39:8 / base = cents // n /        ^^^^^^^^^^ / // works only with whole numbers: n is 2.5.
+2_schedule,axion_run1.ax,axion,n is true,wrong type,stopped,0.07,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got true/false."
+2_schedule,axion_run1.ax,axion,start is a number,wrong type,stopped,0.06,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got a number."
+2_schedule,axion_run1.ax,axion,start is null,null,stopped,0.06,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got null."
+2_schedule,axion_run1.ax,axion,no start,missing,stopped,0.06,ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / input start was not provided.
+2_schedule,axion_run1.ax,axion,no n,missing,stopped,0.06,ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / input n was not provided.
+2_schedule,axion_run1.ax,axion,start is 2026-02-31,promised never,answered silently,0.06,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,axion_run1.ax,axion,start is 31.01.2026,promised never,stopped,0.08,"ERROR R404 line 42:5 / y = parts[0] as number /     ^^^^^^^^^^^^^^^^^^ / ""31.01.2026"" cannot be converted to number."
+2_schedule,axion_run1.ax,axion,"total is ""abc""",promised never,stopped,0.06,"ERROR R404 line 29:6 / tn = total as number /      ^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+2_schedule,axion_run1.ax,axion,"total is ""1e3""",promised never,stopped,0.06,"ERROR R404 line 29:6 / tn = total as number /      ^^^^^^^^^^^^^^^ / ""1e3"" cannot be converted to number."
+2_schedule,axion_run1.ax,axion,"n is 10,000,000,000",extreme,stopped,0.1,ERROR R406 line 45:10 / for i in 0 to n - 1 /          ^^^^^^^^^^ / A list would have 10000000000 elements; the limit of the launch policy is 1000000.
+2_schedule,axion_run1.ax,axion,total has 32 digits,extreme,stopped,0.13,"ERROR R404 line 29:6 / tn = total as number /      ^^^^^^^^^^^^^^^ / ""99999999999999999999999999999999.99"" cannot be converted to number: a number keeps 28 digits."
+2_schedule,axion_run1.ax,axion,an extra field,extra field,stopped,0.1,"ERROR R407 line 1:1 / input total: text / ^ / The input data has comment, which the program does not declare."
+2_schedule,axion_run2.ax,axion,total is a number 100.1,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^^^^^^^^^^^^^^^^^ / Input data: total must be text, got a number."
+2_schedule,axion_run2.ax,axion,"n is text ""3""",wrong type,stopped,0.1,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got text."
+2_schedule,axion_run2.ax,axion,n is 2.5,wrong type,stopped,0.09,ERROR R402 line 39:8 / base = c // n /        ^^^^^^ / // works only with whole numbers: n is 2.5.
+2_schedule,axion_run2.ax,axion,n is true,wrong type,stopped,0.07,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got true/false."
+2_schedule,axion_run2.ax,axion,start is a number,wrong type,stopped,0.08,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got a number."
+2_schedule,axion_run2.ax,axion,start is null,null,stopped,0.07,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got null."
+2_schedule,axion_run2.ax,axion,no start,missing,stopped,0.08,ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / input start was not provided.
+2_schedule,axion_run2.ax,axion,no n,missing,stopped,0.08,ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / input n was not provided.
+2_schedule,axion_run2.ax,axion,start is 2026-02-31,promised never,answered silently,0.08,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,axion_run2.ax,axion,start is 31.01.2026,promised never,stopped,0.08,"ERROR R404 line 42:6 / m0 = start[5 to 6] as number /      ^^^^^^^^^^^^^^^^^^^^^^^ / "".2"" cannot be converted to number."
+2_schedule,axion_run2.ax,axion,"total is ""abc""",promised never,stopped,0.08,"ERROR R404 line 28:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+2_schedule,axion_run2.ax,axion,"total is ""1e3""",promised never,stopped,0.08,"ERROR R404 line 28:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""1e3"" cannot be converted to number."
+2_schedule,axion_run2.ax,axion,"n is 10,000,000,000",extreme,stopped,0.08,ERROR R406 line 44:10 / for i in 0 to n - 1 /          ^^^^^^^^^^ / A list would have 10000000000 elements; the limit of the launch policy is 1000000.
+2_schedule,axion_run2.ax,axion,total has 32 digits,extreme,stopped,0.07,"ERROR R404 line 28:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""99999999999999999999999999999999.99"" cannot be converted to number: a number keeps 28 digits."
+2_schedule,axion_run2.ax,axion,an extra field,extra field,stopped,0.07,"ERROR R407 line 1:1 / input total: text / ^ / The input data has comment, which the program does not declare."
+2_schedule,axion_run3.ax,axion,total is a number 100.1,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^^^^^^^^^^^^^^^^^ / Input data: total must be text, got a number."
+2_schedule,axion_run3.ax,axion,"n is text ""3""",wrong type,stopped,0.06,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got text."
+2_schedule,axion_run3.ax,axion,n is 2.5,wrong type,stopped,0.07,ERROR R402 line 35:8 / base = all // n /        ^^^^^^^^ / // works only with whole numbers: n is 2.5.
+2_schedule,axion_run3.ax,axion,n is true,wrong type,stopped,0.06,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got true/false."
+2_schedule,axion_run3.ax,axion,start is a number,wrong type,stopped,0.06,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got a number."
+2_schedule,axion_run3.ax,axion,start is null,null,stopped,0.08,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got null."
+2_schedule,axion_run3.ax,axion,no start,missing,stopped,0.09,ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / input start was not provided.
+2_schedule,axion_run3.ax,axion,no n,missing,stopped,0.09,ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / input n was not provided.
+2_schedule,axion_run3.ax,axion,start is 2026-02-31,promised never,answered silently,0.08,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,axion_run3.ax,axion,start is 31.01.2026,promised never,stopped,0.09,"ERROR R404 line 38:7 / mon = start[5 to 6] as number /       ^^^^^^^^^^^^^^^^^^^^^^^ / "".2"" cannot be converted to number."
+2_schedule,axion_run3.ax,axion,"total is ""abc""",promised never,stopped,0.09,"ERROR R404 line 20:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+2_schedule,axion_run3.ax,axion,"total is ""1e3""",promised never,stopped,0.08,"ERROR R404 line 20:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""1e3"" cannot be converted to number."
+2_schedule,axion_run3.ax,axion,"n is 10,000,000,000",extreme,stopped,0.08,ERROR R406 line 40:10 / for i in 0 to n - 1 /          ^^^^^^^^^^ / A list would have 10000000000 elements; the limit of the launch policy is 1000000.
+2_schedule,axion_run3.ax,axion,total has 32 digits,extreme,stopped,0.08,"ERROR R404 line 20:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""99999999999999999999999999999999.99"" cannot be converted to number: a number keeps 28 digits."
+2_schedule,axion_run3.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input total: text / ^ / The input data has comment, which the program does not declare."
+2_schedule,axion_run4.ax,axion,total is a number 100.1,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^^^^^^^^^^^^^^^^^ / Input data: total must be text, got a number."
+2_schedule,axion_run4.ax,axion,"n is text ""3""",wrong type,stopped,0.09,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got text."
+2_schedule,axion_run4.ax,axion,n is 2.5,wrong type,stopped,0.09,ERROR R402 line 39:9 / share = cents // n /         ^^^^^^^^^^ / // works only with whole numbers: n is 2.5.
+2_schedule,axion_run4.ax,axion,n is true,wrong type,stopped,0.12,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got true/false."
+2_schedule,axion_run4.ax,axion,start is a number,wrong type,stopped,0.08,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got a number."
+2_schedule,axion_run4.ax,axion,start is null,null,stopped,0.09,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got null."
+2_schedule,axion_run4.ax,axion,no start,missing,stopped,0.09,ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / input start was not provided.
+2_schedule,axion_run4.ax,axion,no n,missing,stopped,0.12,ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / input n was not provided.
+2_schedule,axion_run4.ax,axion,start is 2026-02-31,promised never,answered silently,0.08,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,axion_run4.ax,axion,start is 31.01.2026,promised never,stopped,0.1,"ERROR R404 line 42:5 / m = start[5 to 6] as number /     ^^^^^^^^^^^^^^^^^^^^^^^ / "".2"" cannot be converted to number."
+2_schedule,axion_run4.ax,axion,"total is ""abc""",promised never,stopped,0.12,"ERROR R404 line 24:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+2_schedule,axion_run4.ax,axion,"total is ""1e3""",promised never,stopped,0.11,"ERROR R404 line 24:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""1e3"" cannot be converted to number."
+2_schedule,axion_run4.ax,axion,"n is 10,000,000,000",extreme,stopped,0.1,ERROR R406 line 45:10 / for i in 0 to n - 1 /          ^^^^^^^^^^ / A list would have 10000000000 elements; the limit of the launch policy is 1000000.
+2_schedule,axion_run4.ax,axion,total has 32 digits,extreme,stopped,0.08,"ERROR R404 line 24:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""99999999999999999999999999999999.99"" cannot be converted to number: a number keeps 28 digits."
+2_schedule,axion_run4.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^ / The input data has comment, which the program does not declare."
+2_schedule,axion_run5.ax,axion,total is a number 100.1,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^^^^^^^^^^^^^^^^^ / Input data: total must be text, got a number."
+2_schedule,axion_run5.ax,axion,"n is text ""3""",wrong type,stopped,0.08,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got text."
+2_schedule,axion_run5.ax,axion,n is 2.5,wrong type,stopped,0.1,ERROR R402 line 49:8 / base = cents // n /        ^^^^^^^^^^ / // works only with whole numbers: n is 2.5.
+2_schedule,axion_run5.ax,axion,n is true,wrong type,stopped,0.08,"ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / Input data: n must be number, got true/false."
+2_schedule,axion_run5.ax,axion,start is a number,wrong type,stopped,0.08,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got a number."
+2_schedule,axion_run5.ax,axion,start is null,null,stopped,0.08,"ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / Input data: start must be text, got null."
+2_schedule,axion_run5.ax,axion,no start,missing,stopped,0.09,ERROR R407 line 3:1 / input start: text / ^^^^^^^^^^^^^^^^^ / input start was not provided.
+2_schedule,axion_run5.ax,axion,no n,missing,stopped,0.08,ERROR R407 line 2:1 / input n: number / ^^^^^^^^^^^^^^^ / input n was not provided.
+2_schedule,axion_run5.ax,axion,start is 2026-02-31,promised never,answered silently,0.08,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,axion_run5.ax,axion,start is 31.01.2026,promised never,stopped,0.08,"ERROR R404 line 52:5 / m = start[5 to 6] as number /     ^^^^^^^^^^^^^^^^^^^^^^^ / "".2"" cannot be converted to number."
+2_schedule,axion_run5.ax,axion,"total is ""abc""",promised never,stopped,0.08,"ERROR R404 line 34:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+2_schedule,axion_run5.ax,axion,"total is ""1e3""",promised never,stopped,0.1,"ERROR R404 line 34:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""1e3"" cannot be converted to number."
+2_schedule,axion_run5.ax,axion,"n is 10,000,000,000",extreme,stopped,0.09,ERROR R406 line 54:10 / for i in 0 to n - 1 /          ^^^^^^^^^^ / A list would have 10000000000 elements; the limit of the launch policy is 1000000.
+2_schedule,axion_run5.ax,axion,total has 32 digits,extreme,stopped,0.08,"ERROR R404 line 34:5 / t = total as number /     ^^^^^^^^^^^^^^^ / ""99999999999999999999999999999999.99"" cannot be converted to number: a number keeps 28 digits."
+2_schedule,axion_run5.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input total: text / ^ / The input data has comment, which the program does not declare."
+2_schedule,python_run1.py,python,total is a number 100.1,wrong type,answered silently,0.03,  2026-01-31    33.37 |   2026-02-28    33.37 |   2026-03-31    33.36
+2_schedule,python_run1.py,python,"n is text ""3""",wrong type,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run1.py,python,n is 2.5,wrong type,answered silently,0.03,  2026-01-31   500.00 |   2026-02-28   500.00
+2_schedule,python_run1.py,python,n is true,wrong type,answered silently,0.03,  2026-01-31  1000.00
+2_schedule,python_run1.py,python,start is a number,wrong type,stopped,0.04,"ValueError: not enough values to unpack (expected 3, got 1)"
+2_schedule,python_run1.py,python,start is null,null,stopped,0.04,ValueError: invalid literal for int() with base 10: 'None'
+2_schedule,python_run1.py,python,no start,missing,stopped,0.04,KeyError: 'start'
+2_schedule,python_run1.py,python,no n,missing,stopped,0.04,KeyError: 'n'
+2_schedule,python_run1.py,python,start is 2026-02-31,promised never,answered silently,0.02,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,python_run1.py,python,start is 31.01.2026,promised never,stopped,0.04,ValueError: invalid literal for int() with base 10: '31.01.2026'
+2_schedule,python_run1.py,python,"total is ""abc""",promised never,stopped,0.03,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2_schedule,python_run1.py,python,"total is ""1e3""",promised never,answered silently,0.02,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run1.py,python,"n is 10,000,000,000",extreme,hung,10,no end in 10 s
+2_schedule,python_run1.py,python,total has 32 digits,extreme,answered silently,0.03,  2026-01-3133333333333333333333333333333333.34 |   2026-02-2833333333333333333333333333333333.33 |   2026-03-3133333333333333333333333333333333.33
+2_schedule,python_run1.py,python,an extra field,extra field,right,0.03,
+2_schedule,python_run2.py,python,total is a number 100.1,wrong type,answered silently,0.03,  2026-01-31    33.37 |   2026-02-28    33.37 |   2026-03-31    33.36
+2_schedule,python_run2.py,python,"n is text ""3""",wrong type,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run2.py,python,n is 2.5,wrong type,answered silently,0.03,  2026-01-31   500.00 |   2026-02-28   500.00
+2_schedule,python_run2.py,python,n is true,wrong type,answered silently,0.03,  2026-01-31  1000.00
+2_schedule,python_run2.py,python,start is a number,wrong type,stopped,0.04,"ValueError: not enough values to unpack (expected 3, got 1)"
+2_schedule,python_run2.py,python,start is null,null,stopped,0.04,ValueError: invalid literal for int() with base 10: 'None'
+2_schedule,python_run2.py,python,no start,missing,stopped,0.04,KeyError: 'start'
+2_schedule,python_run2.py,python,no n,missing,stopped,0.04,KeyError: 'n'
+2_schedule,python_run2.py,python,start is 2026-02-31,promised never,answered silently,0.04,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,python_run2.py,python,start is 31.01.2026,promised never,stopped,0.05,ValueError: invalid literal for int() with base 10: '31.01.2026'
+2_schedule,python_run2.py,python,"total is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2_schedule,python_run2.py,python,"total is ""1e3""",promised never,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run2.py,python,"n is 10,000,000,000",extreme,hung,10,no end in 10 s
+2_schedule,python_run2.py,python,total has 32 digits,extreme,answered silently,0.03,  2026-01-3133333333333333333333333333333333.34 |   2026-02-2833333333333333333333333333333333.33 |   2026-03-3133333333333333333333333333333333.33
+2_schedule,python_run2.py,python,an extra field,extra field,right,0.03,
+2_schedule,python_run3.py,python,total is a number 100.1,wrong type,answered silently,0.03,  2026-01-31    33.37 |   2026-02-28    33.37 |   2026-03-31    33.36
+2_schedule,python_run3.py,python,"n is text ""3""",wrong type,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run3.py,python,n is 2.5,wrong type,answered silently,0.03,  2026-01-31   500.00 |   2026-02-28   500.00
+2_schedule,python_run3.py,python,n is true,wrong type,answered silently,0.03,  2026-01-31  1000.00
+2_schedule,python_run3.py,python,start is a number,wrong type,stopped,0.04,"ValueError: not enough values to unpack (expected 3, got 1)"
+2_schedule,python_run3.py,python,start is null,null,stopped,0.05,ValueError: invalid literal for int() with base 10: 'None'
+2_schedule,python_run3.py,python,no start,missing,stopped,0.04,KeyError: 'start'
+2_schedule,python_run3.py,python,no n,missing,stopped,0.03,KeyError: 'n'
+2_schedule,python_run3.py,python,start is 2026-02-31,promised never,answered silently,0.03,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,python_run3.py,python,start is 31.01.2026,promised never,stopped,0.05,ValueError: invalid literal for int() with base 10: '31.01.2026'
+2_schedule,python_run3.py,python,"total is ""abc""",promised never,stopped,0.05,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2_schedule,python_run3.py,python,"total is ""1e3""",promised never,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run3.py,python,"n is 10,000,000,000",extreme,hung,10,no end in 10 s
+2_schedule,python_run3.py,python,total has 32 digits,extreme,answered silently,0.03,  2026-01-3133333333333333333333333333333333.34 |   2026-02-2833333333333333333333333333333333.33 |   2026-03-3133333333333333333333333333333333.33
+2_schedule,python_run3.py,python,an extra field,extra field,right,0.03,
+2_schedule,python_run4.py,python,total is a number 100.1,wrong type,answered silently,0.03,  2026-01-31    33.37 |   2026-02-28    33.37 |   2026-03-31    33.36
+2_schedule,python_run4.py,python,"n is text ""3""",wrong type,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run4.py,python,n is 2.5,wrong type,answered silently,0.03,  2026-01-31   500.00 |   2026-02-28   500.00
+2_schedule,python_run4.py,python,n is true,wrong type,answered silently,0.03,  2026-01-31  1000.00
+2_schedule,python_run4.py,python,start is a number,wrong type,stopped,0.04,"ValueError: not enough values to unpack (expected 3, got 1)"
+2_schedule,python_run4.py,python,start is null,null,stopped,0.04,ValueError: invalid literal for int() with base 10: 'None'
+2_schedule,python_run4.py,python,no start,missing,stopped,0.04,KeyError: 'start'
+2_schedule,python_run4.py,python,no n,missing,stopped,0.04,KeyError: 'n'
+2_schedule,python_run4.py,python,start is 2026-02-31,promised never,answered silently,0.03,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,python_run4.py,python,start is 31.01.2026,promised never,stopped,0.04,ValueError: invalid literal for int() with base 10: '31.01.2026'
+2_schedule,python_run4.py,python,"total is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2_schedule,python_run4.py,python,"total is ""1e3""",promised never,answered silently,0.03,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run4.py,python,"n is 10,000,000,000",extreme,hung,10,no end in 10 s
+2_schedule,python_run4.py,python,total has 32 digits,extreme,answered silently,0.04,  2026-01-3133333333333333333333333333333333.34 |   2026-02-2833333333333333333333333333333333.33 |   2026-03-3133333333333333333333333333333333.33
+2_schedule,python_run4.py,python,an extra field,extra field,right,0.04,
+2_schedule,python_run5.py,python,total is a number 100.1,wrong type,answered silently,0.04,  2026-01-31    33.37 |   2026-02-28    33.37 |   2026-03-31    33.36
+2_schedule,python_run5.py,python,"n is text ""3""",wrong type,answered silently,0.04,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run5.py,python,n is 2.5,wrong type,answered silently,0.04,  2026-01-31   500.00 |   2026-02-28   500.00
+2_schedule,python_run5.py,python,n is true,wrong type,answered silently,0.04,  2026-01-31  1000.00
+2_schedule,python_run5.py,python,start is a number,wrong type,stopped,0.04,"ValueError: not enough values to unpack (expected 3, got 1)"
+2_schedule,python_run5.py,python,start is null,null,stopped,0.04,ValueError: invalid literal for int() with base 10: 'None'
+2_schedule,python_run5.py,python,no start,missing,stopped,0.04,KeyError: 'start'
+2_schedule,python_run5.py,python,no n,missing,stopped,0.04,KeyError: 'n'
+2_schedule,python_run5.py,python,start is 2026-02-31,promised never,answered silently,0.03,  2026-02-28   333.34 |   2026-03-31   333.33 |   2026-04-30   333.33
+2_schedule,python_run5.py,python,start is 31.01.2026,promised never,stopped,0.04,ValueError: invalid literal for int() with base 10: '31.01.2026'
+2_schedule,python_run5.py,python,"total is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+2_schedule,python_run5.py,python,"total is ""1e3""",promised never,answered silently,0.04,  2026-01-31   333.34 |   2026-02-28   333.33 |   2026-03-31   333.33
+2_schedule,python_run5.py,python,"n is 10,000,000,000",extreme,hung,10,no end in 10 s
+2_schedule,python_run5.py,python,total has 32 digits,extreme,answered silently,0.03,  2026-01-3133333333333333333333333333333333.34 |   2026-02-2833333333333333333333333333333333.33 |   2026-03-3133333333333333333333333333333333.33
+2_schedule,python_run5.py,python,an extra field,extra field,right,0.03,
+3_reconcile,axion_run1.ax,axion,an amount is a number 1500.0,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got a number."
+3_reconcile,axion_run1.ax,axion,an id is a number 1001,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].id must be text, got a number."
+3_reconcile,axion_run1.ax,axion,an amount is null,null,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got null."
+3_reconcile,axion_run1.ax,axion,a record without amount,missing,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field amount."
+3_reconcile,axion_run1.ax,axion,a record without date,missing,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field date."
+3_reconcile,axion_run1.ax,axion,no b at all,missing,stopped,0.07,"ERROR R407 line 2:1 / input b: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input b was not provided."
+3_reconcile,axion_run1.ax,axion,"a is one record, not a list",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a must be list of {id: text, date: text, amount: text}, got an object."
+3_reconcile,axion_run1.ax,axion,a is a list of texts,wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] must be {id: text, date: text, amount: text}, got text."
+3_reconcile,axion_run1.ax,axion,"an amount is ""abc""",promised never,stopped,0.08,"ERROR R404 line 39:13 /     ma[k] = v as number /             ^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+3_reconcile,axion_run1.ax,axion,an amount is empty text,promised never,stopped,0.09,"ERROR R404 line 39:13 /     ma[k] = v as number /             ^^^^^^^^^^^ / """" cannot be converted to number."
+3_reconcile,axion_run1.ax,axion,"an amount is ""1 500,00""",promised never,stopped,0.08,"ERROR R404 line 39:13 /     ma[k] = v as number /             ^^^^^^^^^^^ / ""1 500.00"" cannot be converted to number."
+3_reconcile,axion_run1.ax,axion,"an amount is ""-50.00""",promised never,answered silently,0.07,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,axion_run1.ax,axion,an amount has 32 digits,extreme,stopped,0.08,"ERROR R404 line 39:13 /     ma[k] = v as number /             ^^^^^^^^^^^ / ""123456789012345678901234567890.12"" cannot be converted to number: a number keeps 28 digits."
+3_reconcile,axion_run1.ax,axion,an extra field in a record,extra field,stopped,0.13,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has a field note that the program does not declare."
+3_reconcile,axion_run1.ax,axion,"50,000 records on each side",big but valid,stopped,4.72,ERROR R406 line 71:3 /   if mb contains k /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+3_reconcile,axion_run2.ax,axion,an amount is a number 1500.0,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got a number."
+3_reconcile,axion_run2.ax,axion,an id is a number 1001,wrong type,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].id must be text, got a number."
+3_reconcile,axion_run2.ax,axion,an amount is null,null,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got null."
+3_reconcile,axion_run2.ax,axion,a record without amount,missing,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field amount."
+3_reconcile,axion_run2.ax,axion,a record without date,missing,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field date."
+3_reconcile,axion_run2.ax,axion,no b at all,missing,stopped,0.08,"ERROR R407 line 2:1 / input b: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input b was not provided."
+3_reconcile,axion_run2.ax,axion,"a is one record, not a list",wrong shape,stopped,0.06,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a must be list of {id: text, date: text, amount: text}, got an object."
+3_reconcile,axion_run2.ax,axion,a is a list of texts,wrong shape,stopped,0.06,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] must be {id: text, date: text, amount: text}, got text."
+3_reconcile,axion_run2.ax,axion,"an amount is ""abc""",promised never,stopped,0.08,"ERROR R404 line 27:9 /   amt = ((r.amount split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+3_reconcile,axion_run2.ax,axion,an amount is empty text,promised never,stopped,0.08,"ERROR R404 line 27:9 /   amt = ((r.amount split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / """" cannot be converted to number."
+3_reconcile,axion_run2.ax,axion,"an amount is ""1 500,00""",promised never,stopped,0.08,"ERROR R404 line 27:9 /   amt = ((r.amount split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""1 500.00"" cannot be converted to number."
+3_reconcile,axion_run2.ax,axion,"an amount is ""-50.00""",promised never,answered silently,0.1,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,axion_run2.ax,axion,an amount has 32 digits,extreme,stopped,0.09,"ERROR R404 line 27:9 /   amt = ((r.amount split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""123456789012345678901234567890.12"" cannot be converted to number: a number keeps 28 digits."
+3_reconcile,axion_run2.ax,axion,an extra field in a record,extra field,stopped,0.1,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has a field note that the program does not declare."
+3_reconcile,axion_run2.ax,axion,"50,000 records on each side",big but valid,stopped,3.81,ERROR R406 line 60:3 /   if ca[id] > 1 /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+3_reconcile,axion_run3.ax,axion,an amount is a number 1500.0,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got a number."
+3_reconcile,axion_run3.ax,axion,an id is a number 1001,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].id must be text, got a number."
+3_reconcile,axion_run3.ax,axion,an amount is null,null,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got null."
+3_reconcile,axion_run3.ax,axion,a record without amount,missing,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field amount."
+3_reconcile,axion_run3.ax,axion,a record without date,missing,stopped,0.09,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field date."
+3_reconcile,axion_run3.ax,axion,no b at all,missing,stopped,0.09,"ERROR R407 line 2:1 / input b: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input b was not provided."
+3_reconcile,axion_run3.ax,axion,"a is one record, not a list",wrong shape,stopped,0.1,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a must be list of {id: text, date: text, amount: text}, got an object."
+3_reconcile,axion_run3.ax,axion,a is a list of texts,wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] must be {id: text, date: text, amount: text}, got text."
+3_reconcile,axion_run3.ax,axion,"an amount is ""abc""",promised never,stopped,0.08,"ERROR R404 line 29:11 /     amt = ((r.amount split "","") join ""."") as number /           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+3_reconcile,axion_run3.ax,axion,an amount is empty text,promised never,stopped,0.09,"ERROR R404 line 29:11 /     amt = ((r.amount split "","") join ""."") as number /           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / """" cannot be converted to number."
+3_reconcile,axion_run3.ax,axion,"an amount is ""1 500,00""",promised never,stopped,0.08,"ERROR R404 line 29:11 /     amt = ((r.amount split "","") join ""."") as number /           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""1 500.00"" cannot be converted to number."
+3_reconcile,axion_run3.ax,axion,"an amount is ""-50.00""",promised never,answered silently,0.07,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,axion_run3.ax,axion,an amount has 32 digits,extreme,stopped,0.08,"ERROR R404 line 29:11 /     amt = ((r.amount split "","") join ""."") as number /           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""123456789012345678901234567890.12"" cannot be converted to number: a number keeps 28 digits."
+3_reconcile,axion_run3.ax,axion,an extra field in a record,extra field,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has a field note that the program does not declare."
+3_reconcile,axion_run3.ax,axion,"50,000 records on each side",big but valid,stopped,3.86,ERROR R406 line 62:7 /       same add id /       ^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+3_reconcile,axion_run4.ax,axion,an amount is a number 1500.0,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got a number."
+3_reconcile,axion_run4.ax,axion,an id is a number 1001,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].id must be text, got a number."
+3_reconcile,axion_run4.ax,axion,an amount is null,null,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got null."
+3_reconcile,axion_run4.ax,axion,a record without amount,missing,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field amount."
+3_reconcile,axion_run4.ax,axion,a record without date,missing,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field date."
+3_reconcile,axion_run4.ax,axion,no b at all,missing,stopped,0.08,"ERROR R407 line 2:1 / input b: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input b was not provided."
+3_reconcile,axion_run4.ax,axion,"a is one record, not a list",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a must be list of {id: text, date: text, amount: text}, got an object."
+3_reconcile,axion_run4.ax,axion,a is a list of texts,wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] must be {id: text, date: text, amount: text}, got text."
+3_reconcile,axion_run4.ax,axion,"an amount is ""abc""",promised never,stopped,0.08,"ERROR R404 line 31:9 /   amt = ((r.amount trim split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+3_reconcile,axion_run4.ax,axion,an amount is empty text,promised never,stopped,0.08,"ERROR R404 line 31:9 /   amt = ((r.amount trim split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / """" cannot be converted to number."
+3_reconcile,axion_run4.ax,axion,"an amount is ""1 500,00""",promised never,stopped,0.08,"ERROR R404 line 31:9 /   amt = ((r.amount trim split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""1 500.00"" cannot be converted to number."
+3_reconcile,axion_run4.ax,axion,"an amount is ""-50.00""",promised never,answered silently,0.12,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,axion_run4.ax,axion,an amount has 32 digits,extreme,stopped,0.1,"ERROR R404 line 31:9 /   amt = ((r.amount trim split "","") join ""."") as number /         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""123456789012345678901234567890.12"" cannot be converted to number: a number keeps 28 digits."
+3_reconcile,axion_run4.ax,axion,an extra field in a record,extra field,stopped,0.09,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has a field note that the program does not declare."
+3_reconcile,axion_run4.ax,axion,"50,000 records on each side",big but valid,stopped,4.1,ERROR R406 line 66:1 / for k in akeys / ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+3_reconcile,axion_run5.ax,axion,an amount is a number 1500.0,wrong type,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got a number."
+3_reconcile,axion_run5.ax,axion,an id is a number 1001,wrong type,stopped,0.07,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].id must be text, got a number."
+3_reconcile,axion_run5.ax,axion,an amount is null,null,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0].amount must be text, got null."
+3_reconcile,axion_run5.ax,axion,a record without amount,missing,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field amount."
+3_reconcile,axion_run5.ax,axion,a record without date,missing,stopped,0.12,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has no field date."
+3_reconcile,axion_run5.ax,axion,no b at all,missing,stopped,0.09,"ERROR R407 line 2:1 / input b: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input b was not provided."
+3_reconcile,axion_run5.ax,axion,"a is one record, not a list",wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a must be list of {id: text, date: text, amount: text}, got an object."
+3_reconcile,axion_run5.ax,axion,a is a list of texts,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] must be {id: text, date: text, amount: text}, got text."
+3_reconcile,axion_run5.ax,axion,"an amount is ""abc""",promised never,stopped,0.12,"ERROR R404 line 27:8 /   am = (((r.amount trim) split "","") join ""."") as number /        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""abc"" cannot be converted to number."
+3_reconcile,axion_run5.ax,axion,an amount is empty text,promised never,stopped,0.07,"ERROR R404 line 27:8 /   am = (((r.amount trim) split "","") join ""."") as number /        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / """" cannot be converted to number."
+3_reconcile,axion_run5.ax,axion,"an amount is ""1 500,00""",promised never,stopped,0.06,"ERROR R404 line 27:8 /   am = (((r.amount trim) split "","") join ""."") as number /        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""1 500.00"" cannot be converted to number."
+3_reconcile,axion_run5.ax,axion,"an amount is ""-50.00""",promised never,answered silently,0.06,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,axion_run5.ax,axion,an amount has 32 digits,extreme,stopped,0.06,"ERROR R404 line 27:8 /   am = (((r.amount trim) split "","") join ""."") as number /        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / ""123456789012345678901234567890.12"" cannot be converted to number: a number keeps 28 digits."
+3_reconcile,axion_run5.ax,axion,an extra field in a record,extra field,stopped,0.08,"ERROR R407 line 1:1 / input a: list of {id: text, date: text, amount: text} / ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: a[0] has a field note that the program does not declare."
+3_reconcile,axion_run5.ax,axion,"50,000 records on each side",big but valid,stopped,3.99,ERROR R406 line 68:3 /   if cntB contains id /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+3_reconcile,python_run1.py,python,an amount is a number 1500.0,wrong type,stopped,0.04,AttributeError: 'float' object has no attribute 'strip'
+3_reconcile,python_run1.py,python,an id is a number 1001,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+3_reconcile,python_run1.py,python,an amount is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+3_reconcile,python_run1.py,python,a record without amount,missing,stopped,0.03,KeyError: 'amount'
+3_reconcile,python_run1.py,python,a record without date,missing,stopped,0.03,KeyError: 'date'
+3_reconcile,python_run1.py,python,no b at all,missing,stopped,0.03,KeyError: 'b'
+3_reconcile,python_run1.py,python,"a is one record, not a list",wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run1.py,python,a is a list of texts,wrong shape,stopped,0.05,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run1.py,python,"an amount is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run1.py,python,an amount is empty text,promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run1.py,python,"an amount is ""1 500,00""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run1.py,python,"an amount is ""-50.00""",promised never,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run1.py,python,an amount has 32 digits,extreme,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run1.py,python,an extra field in a record,extra field,right,0.03,
+3_reconcile,python_run1.py,python,"50,000 records on each side",big but valid,right,0.34,
+3_reconcile,python_run2.py,python,an amount is a number 1500.0,wrong type,stopped,0.04,AttributeError: 'float' object has no attribute 'strip'
+3_reconcile,python_run2.py,python,an id is a number 1001,wrong type,stopped,0.03,AttributeError: 'int' object has no attribute 'strip'
+3_reconcile,python_run2.py,python,an amount is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+3_reconcile,python_run2.py,python,a record without amount,missing,stopped,0.04,KeyError: 'amount'
+3_reconcile,python_run2.py,python,a record without date,missing,stopped,0.04,KeyError: 'date'
+3_reconcile,python_run2.py,python,no b at all,missing,stopped,0.04,KeyError: 'b'
+3_reconcile,python_run2.py,python,"a is one record, not a list",wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run2.py,python,a is a list of texts,wrong shape,stopped,0.03,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run2.py,python,"an amount is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run2.py,python,an amount is empty text,promised never,stopped,0.05,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run2.py,python,"an amount is ""1 500,00""",promised never,stopped,0.05,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run2.py,python,"an amount is ""-50.00""",promised never,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run2.py,python,an amount has 32 digits,extreme,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.InvalidOperation'>]
+3_reconcile,python_run2.py,python,an extra field in a record,extra field,right,0.03,
+3_reconcile,python_run2.py,python,"50,000 records on each side",big but valid,right,0.3,
+3_reconcile,python_run3.py,python,an amount is a number 1500.0,wrong type,stopped,0.04,AttributeError: 'float' object has no attribute 'strip'
+3_reconcile,python_run3.py,python,an id is a number 1001,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+3_reconcile,python_run3.py,python,an amount is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+3_reconcile,python_run3.py,python,a record without amount,missing,stopped,0.05,KeyError: 'amount'
+3_reconcile,python_run3.py,python,a record without date,missing,stopped,0.04,KeyError: 'date'
+3_reconcile,python_run3.py,python,no b at all,missing,stopped,0.04,KeyError: 'b'
+3_reconcile,python_run3.py,python,"a is one record, not a list",wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run3.py,python,a is a list of texts,wrong shape,stopped,0.03,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run3.py,python,"an amount is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run3.py,python,an amount is empty text,promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run3.py,python,"an amount is ""1 500,00""",promised never,stopped,0.03,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run3.py,python,"an amount is ""-50.00""",promised never,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run3.py,python,an amount has 32 digits,extreme,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run3.py,python,an extra field in a record,extra field,right,0.02,
+3_reconcile,python_run3.py,python,"50,000 records on each side",big but valid,right,0.22,
+3_reconcile,python_run4.py,python,an amount is a number 1500.0,wrong type,stopped,0.04,AttributeError: 'float' object has no attribute 'strip'
+3_reconcile,python_run4.py,python,an id is a number 1001,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+3_reconcile,python_run4.py,python,an amount is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+3_reconcile,python_run4.py,python,a record without amount,missing,stopped,0.04,KeyError: 'amount'
+3_reconcile,python_run4.py,python,a record without date,missing,stopped,0.04,KeyError: 'date'
+3_reconcile,python_run4.py,python,no b at all,missing,stopped,0.04,KeyError: 'b'
+3_reconcile,python_run4.py,python,"a is one record, not a list",wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run4.py,python,a is a list of texts,wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run4.py,python,"an amount is ""abc""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run4.py,python,an amount is empty text,promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run4.py,python,"an amount is ""1 500,00""",promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run4.py,python,"an amount is ""-50.00""",promised never,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run4.py,python,an amount has 32 digits,extreme,answered silently,0.03,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run4.py,python,an extra field in a record,extra field,right,0.03,
+3_reconcile,python_run4.py,python,"50,000 records on each side",big but valid,right,0.25,
+3_reconcile,python_run5.py,python,an amount is a number 1500.0,wrong type,stopped,0.03,AttributeError: 'float' object has no attribute 'strip'
+3_reconcile,python_run5.py,python,an id is a number 1001,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+3_reconcile,python_run5.py,python,an amount is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+3_reconcile,python_run5.py,python,a record without amount,missing,stopped,0.03,KeyError: 'amount'
+3_reconcile,python_run5.py,python,a record without date,missing,stopped,0.03,KeyError: 'date'
+3_reconcile,python_run5.py,python,no b at all,missing,stopped,0.03,KeyError: 'b'
+3_reconcile,python_run5.py,python,"a is one record, not a list",wrong shape,stopped,0.04,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run5.py,python,a is a list of texts,wrong shape,stopped,0.03,"TypeError: string indices must be integers, not 'str'"
+3_reconcile,python_run5.py,python,"an amount is ""abc""",promised never,stopped,0.03,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run5.py,python,an amount is empty text,promised never,stopped,0.03,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run5.py,python,"an amount is ""1 500,00""",promised never,stopped,0.03,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+3_reconcile,python_run5.py,python,"an amount is ""-50.00""",promised never,answered silently,0.02,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run5.py,python,an amount has 32 digits,extreme,answered silently,0.02,"Совпало: 2 |   T-1006, T-1007 |  | Расхождения: 3"
+3_reconcile,python_run5.py,python,an extra field in a record,extra field,right,0.02,
+3_reconcile,python_run5.py,python,"50,000 records on each side",big but valid,right,0.25,
+4_sales,axion_run1.ax,axion,"a day is text ""15""",wrong type,stopped,0.06,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got text."
+4_sales,axion_run1.ax,axion,a day is true,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got true/false."
+4_sales,axion_run1.ax,axion,a day is null,null,stopped,0.06,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got null."
+4_sales,axion_run1.ax,axion,a day is 12.5,promised never,answered silently,0.11,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run1.ax,axion,a day is -5,promised never,answered silently,0.06,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run1.ax,axion,no sales at all,missing,stopped,0.08,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input sales was not provided.
+4_sales,axion_run1.ax,axion,sales is a number,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales must be list of number, got a number."
+4_sales,axion_run1.ax,axion,sales is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[0] must be number, got an array."
+4_sales,axion_run1.ax,axion,a day is 10 to the power 40,extreme,stopped,0.1,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] is too large for a number: a number keeps 28 digits.
+4_sales,axion_run1.ax,axion,ten years of days,big but valid,right,0.49,
+4_sales,axion_run1.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^ / The input data has shop, which the program does not declare."
+4_sales,axion_run2.ax,axion,"a day is text ""15""",wrong type,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got text."
+4_sales,axion_run2.ax,axion,a day is true,wrong type,stopped,0.1,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got true/false."
+4_sales,axion_run2.ax,axion,a day is null,null,stopped,0.11,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got null."
+4_sales,axion_run2.ax,axion,a day is 12.5,promised never,answered silently,0.09,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run2.ax,axion,a day is -5,promised never,answered silently,0.09,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run2.ax,axion,no sales at all,missing,stopped,0.09,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input sales was not provided.
+4_sales,axion_run2.ax,axion,sales is a number,wrong shape,stopped,0.1,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales must be list of number, got a number."
+4_sales,axion_run2.ax,axion,sales is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[0] must be number, got an array."
+4_sales,axion_run2.ax,axion,a day is 10 to the power 40,extreme,stopped,0.09,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] is too large for a number: a number keeps 28 digits.
+4_sales,axion_run2.ax,axion,ten years of days,big but valid,right,0.79,
+4_sales,axion_run2.ax,axion,an extra field,extra field,stopped,0.11,"ERROR R407 line 1:1 / input sales: list of number / ^ / The input data has shop, which the program does not declare."
+4_sales,axion_run3.ax,axion,"a day is text ""15""",wrong type,stopped,0.11,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got text."
+4_sales,axion_run3.ax,axion,a day is true,wrong type,stopped,0.11,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got true/false."
+4_sales,axion_run3.ax,axion,a day is null,null,stopped,0.1,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got null."
+4_sales,axion_run3.ax,axion,a day is 12.5,promised never,answered silently,0.11,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run3.ax,axion,a day is -5,promised never,answered silently,0.09,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run3.ax,axion,no sales at all,missing,stopped,0.08,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input sales was not provided.
+4_sales,axion_run3.ax,axion,sales is a number,wrong shape,stopped,0.07,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales must be list of number, got a number."
+4_sales,axion_run3.ax,axion,sales is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[0] must be number, got an array."
+4_sales,axion_run3.ax,axion,a day is 10 to the power 40,extreme,stopped,0.07,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] is too large for a number: a number keeps 28 digits.
+4_sales,axion_run3.ax,axion,ten years of days,big but valid,right,0.66,
+4_sales,axion_run3.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^ / The input data has shop, which the program does not declare."
+4_sales,axion_run4.ax,axion,"a day is text ""15""",wrong type,stopped,0.06,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got text."
+4_sales,axion_run4.ax,axion,a day is true,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got true/false."
+4_sales,axion_run4.ax,axion,a day is null,null,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got null."
+4_sales,axion_run4.ax,axion,a day is 12.5,promised never,answered silently,0.08,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run4.ax,axion,a day is -5,promised never,answered silently,0.08,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run4.ax,axion,no sales at all,missing,stopped,0.08,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input sales was not provided.
+4_sales,axion_run4.ax,axion,sales is a number,wrong shape,stopped,0.07,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales must be list of number, got a number."
+4_sales,axion_run4.ax,axion,sales is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[0] must be number, got an array."
+4_sales,axion_run4.ax,axion,a day is 10 to the power 40,extreme,stopped,0.08,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] is too large for a number: a number keeps 28 digits.
+4_sales,axion_run4.ax,axion,ten years of days,big but valid,right,0.56,
+4_sales,axion_run4.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^ / The input data has shop, which the program does not declare."
+4_sales,axion_run5.ax,axion,"a day is text ""15""",wrong type,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got text."
+4_sales,axion_run5.ax,axion,a day is true,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got true/false."
+4_sales,axion_run5.ax,axion,a day is null,null,stopped,0.13,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] must be number, got null."
+4_sales,axion_run5.ax,axion,a day is 12.5,promised never,answered silently,0.1,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run5.ax,axion,a day is -5,promised never,answered silently,0.08,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,axion_run5.ax,axion,no sales at all,missing,stopped,0.06,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / input sales was not provided.
+4_sales,axion_run5.ax,axion,sales is a number,wrong shape,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales must be list of number, got a number."
+4_sales,axion_run5.ax,axion,sales is a list of lists,wrong shape,stopped,0.06,"ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[0] must be number, got an array."
+4_sales,axion_run5.ax,axion,a day is 10 to the power 40,extreme,stopped,0.08,ERROR R407 line 1:1 / input sales: list of number / ^^^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: sales[1] is too large for a number: a number keeps 28 digits.
+4_sales,axion_run5.ax,axion,ten years of days,big but valid,right,0.45,
+4_sales,axion_run5.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input sales: list of number / ^ / The input data has shop, which the program does not declare."
+4_sales,python_run1.py,python,"a day is text ""15""",wrong type,stopped,0.03,TypeError: '<' not supported between instances of 'str' and 'int'
+4_sales,python_run1.py,python,a day is true,wrong type,answered silently,0.02,"1. Суммы по неделям: 106, 120, 40 | 2. Среднее: 16.63   Медиана: 18.50 | 3. Скользящее среднее: 8.00 10.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run1.py,python,a day is null,null,stopped,0.03,TypeError: '<' not supported between instances of 'NoneType' and 'int'
+4_sales,python_run1.py,python,a day is 12.5,promised never,answered silently,0.02,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run1.py,python,a day is -5,promised never,answered silently,0.02,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run1.py,python,no sales at all,missing,answered silently,0.02,1. Суммы по неделям: нет | 2. Среднее: нет   Медиана: нет | 3. Скользящее среднее: нет | 4. Лучшие 4 дня подряд: нет
+4_sales,python_run1.py,python,sales is a number,wrong shape,stopped,0.04,TypeError: 'int' object is not iterable
+4_sales,python_run1.py,python,sales is a list of lists,wrong shape,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'list'
+4_sales,python_run1.py,python,a day is 10 to the power 40,extreme,right,0.03,
+4_sales,python_run1.py,python,ten years of days,big but valid,right,0.03,
+4_sales,python_run1.py,python,an extra field,extra field,right,0.03,
+4_sales,python_run2.py,python,"a day is text ""15""",wrong type,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'str'
+4_sales,python_run2.py,python,a day is true,wrong type,answered silently,0.03,"1. Суммы по неделям: 106, 120, 40 | 2. Среднее: 16.62   Медиана: 18.50 | 3. Скользящее среднее: 8.00 10.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run2.py,python,a day is null,null,stopped,0.03,TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+4_sales,python_run2.py,python,a day is 12.5,promised never,answered silently,0.03,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run2.py,python,a day is -5,promised never,answered silently,0.03,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run2.py,python,no sales at all,missing,answered silently,0.03,1. Суммы по неделям: нет | 2. Среднее: нет   Медиана: нет | 3. Скользящее среднее: нет | 4. Лучшие 4 дня подряд: нет
+4_sales,python_run2.py,python,sales is a number,wrong shape,stopped,0.04,TypeError: object of type 'int' has no len()
+4_sales,python_run2.py,python,sales is a list of lists,wrong shape,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'list'
+4_sales,python_run2.py,python,a day is 10 to the power 40,extreme,wrong,0.03,"1. Суммы по неделям: 10000000000000000000000000000000000000105, 120, 40 | 2. Среднее: 625000000000000018986626776687729180672.00   Медиана: 19.50 | 3. Скользящее среднее: 3333333333333333031620069604124830728192.00 3333333333333333031620069604124830728192.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67"
+4_sales,python_run2.py,python,ten years of days,big but valid,right,0.04,
+4_sales,python_run2.py,python,an extra field,extra field,right,0.03,
+4_sales,python_run3.py,python,"a day is text ""15""",wrong type,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'str'
+4_sales,python_run3.py,python,a day is true,wrong type,answered silently,0.03,"1. Суммы по неделям: 106, 120, 40 | 2. Среднее: 16.63   Медиана: 18.50 | 3. Скользящее среднее: 8.00 10.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run3.py,python,a day is null,null,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+4_sales,python_run3.py,python,a day is 12.5,promised never,stopped,0.04,TypeError: both arguments should be Rational instances
+4_sales,python_run3.py,python,a day is -5,promised never,answered silently,0.03,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run3.py,python,no sales at all,missing,answered silently,0.03,1. Суммы по неделям: нет | 2. Среднее: нет   Медиана: нет | 3. Скользящее среднее: нет | 4. Лучшие 4 дня подряд: нет
+4_sales,python_run3.py,python,sales is a number,wrong shape,stopped,0.04,TypeError: object of type 'int' has no len()
+4_sales,python_run3.py,python,sales is a list of lists,wrong shape,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'list'
+4_sales,python_run3.py,python,a day is 10 to the power 40,extreme,right,0.04,
+4_sales,python_run3.py,python,ten years of days,big but valid,right,0.05,
+4_sales,python_run3.py,python,an extra field,extra field,right,0.03,
+4_sales,python_run4.py,python,"a day is text ""15""",wrong type,stopped,0.04,TypeError: unsupported operand type(s) for +: 'int' and 'str'
+4_sales,python_run4.py,python,a day is true,wrong type,answered silently,0.03,"1. Суммы по неделям: 106, 120, 40 | 2. Среднее: 16.63   Медиана: 18.50 | 3. Скользящее среднее: 8.00 10.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run4.py,python,a day is null,null,stopped,0.05,TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+4_sales,python_run4.py,python,a day is 12.5,promised never,stopped,0.05,TypeError: both arguments should be Rational instances
+4_sales,python_run4.py,python,a day is -5,promised never,answered silently,0.03,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run4.py,python,no sales at all,missing,answered silently,0.03,1. Суммы по неделям: нет | 2. Среднее: нет   Медиана: нет | 3. Скользящее среднее: нет | 4. Лучшие 4 дня подряд: нет
+4_sales,python_run4.py,python,sales is a number,wrong shape,stopped,0.04,TypeError: 'int' object is not iterable
+4_sales,python_run4.py,python,sales is a list of lists,wrong shape,stopped,0.05,TypeError: unsupported operand type(s) for +: 'int' and 'list'
+4_sales,python_run4.py,python,a day is 10 to the power 40,extreme,right,0.03,
+4_sales,python_run4.py,python,ten years of days,big but valid,right,0.06,
+4_sales,python_run4.py,python,an extra field,extra field,right,0.03,
+4_sales,python_run5.py,python,"a day is text ""15""",wrong type,stopped,0.03,TypeError: unsupported operand type(s) for +: 'int' and 'str'
+4_sales,python_run5.py,python,a day is true,wrong type,answered silently,0.03,"1. Суммы по неделям: 106, 120, 40 | 2. Среднее: 16.63   Медиана: 18.50 | 3. Скользящее среднее: 8.00 10.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run5.py,python,a day is null,null,stopped,0.03,TypeError: unsupported operand type(s) for +: 'int' and 'NoneType'
+4_sales,python_run5.py,python,a day is 12.5,promised never,answered silently,0.03,"1. Суммы по неделям: 117.5, 120, 40 | 2. Среднее: 17.34   Медиана: 18.50 | 3. Скользящее среднее: 11.83 13.83 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run5.py,python,a day is -5,promised never,answered silently,0.02,"1. Суммы по неделям: 100, 120, 40 | 2. Среднее: 16.25   Медиана: 18.50 | 3. Скользящее среднее: 6.00 8.00 16.33 19.00 21.33 17.00 13.67 10.00 14.67 19.00 22.33 23.00 19.00 21.00 | 4. Лучшие 4 дня подряд: дни 11-14, сумма 90"
+4_sales,python_run5.py,python,no sales at all,missing,answered silently,0.03,1. Суммы по неделям: нет | 2. Среднее: нет   Медиана: нет | 3. Скользящее среднее: нет | 4. Лучшие 4 дня подряд: нет
+4_sales,python_run5.py,python,sales is a number,wrong shape,stopped,0.03,TypeError: object of type 'int' has no len()
+4_sales,python_run5.py,python,sales is a list of lists,wrong shape,stopped,0.03,TypeError: unsupported operand type(s) for +: 'int' and 'list'
+4_sales,python_run5.py,python,a day is 10 to the power 40,extreme,right,0.02,
+4_sales,python_run5.py,python,ten years of days,big but valid,right,0.03,
+4_sales,python_run5.py,python,an extra field,extra field,right,0.02,
+5_calc,axion_run1.ax,axion,a line is a number 5,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got a number."
+5_calc,axion_run1.ax,axion,a line is null,null,stopped,0.06,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got null."
+5_calc,axion_run1.ax,axion,lines is one text,wrong shape,stopped,0.06,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines must be list of text, got text."
+5_calc,axion_run1.ax,axion,no lines at all,missing,stopped,0.08,ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / input lines was not provided.
+5_calc,axion_run1.ax,axion,lines is a list of lists,wrong shape,stopped,0.06,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[0] must be text, got an array."
+5_calc,axion_run1.ax,axion,9 ^ 9 ^ 9,extreme,stopped,0.08,ERROR R412 line 23:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run1.ax,axion,2 ^ 100000,extreme,stopped,0.06,ERROR R412 line 23:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run1.ax,axion,2 ^ 0.5,promised never,answered silently,0.08,1.414213562373095048801688724
+5_calc,axion_run1.ax,axion,2 ^ -1,promised never,answered silently,0.07,0.5
+5_calc,axion_run1.ax,axion,1 / 3,promised never,answered silently,0.09,0.3333333333333333333333333333
+5_calc,axion_run1.ax,axion,1.2.3 + 1,promised never,own error line,0.09,"ошибка: ожидалось число, позиция 1"
+5_calc,axion_run1.ax,axion,3000 nested parentheses,extreme,right,0.46,
+5_calc,axion_run1.ax,axion,"a sum of 50,001 ones",extreme,stopped,2.72,ERROR R406 line 33:5 /     ch = line[i] /     ^^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run1.ax,axion,"10,000 lines",big but valid,stopped,3.25,"ERROR R406 line 41:9 /         if ""0123456789."" contains c2 /         ^^^ / The program ran more than 1000000 steps (the limit of the launch policy)."
+5_calc,axion_run1.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^ / The input data has mode, which the program does not declare."
+5_calc,axion_run2.ax,axion,a line is a number 5,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got a number."
+5_calc,axion_run2.ax,axion,a line is null,null,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got null."
+5_calc,axion_run2.ax,axion,lines is one text,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines must be list of text, got text."
+5_calc,axion_run2.ax,axion,no lines at all,missing,stopped,0.09,ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / input lines was not provided.
+5_calc,axion_run2.ax,axion,lines is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[0] must be text, got an array."
+5_calc,axion_run2.ax,axion,9 ^ 9 ^ 9,extreme,stopped,0.08,"ERROR R412 line 56:18 /       return {v: base.v ** e.v, p: e.p, err: """"} /                  ^^^^^^^^^^^^^ / The result of ** is too large for a number."
+5_calc,axion_run2.ax,axion,2 ^ 100000,extreme,stopped,0.08,"ERROR R412 line 56:18 /       return {v: base.v ** e.v, p: e.p, err: """"} /                  ^^^^^^^^^^^^^ / The result of ** is too large for a number."
+5_calc,axion_run2.ax,axion,2 ^ 0.5,promised never,answered silently,0.08,1.414213562373095048801688724
+5_calc,axion_run2.ax,axion,2 ^ -1,promised never,answered silently,0.08,0.5
+5_calc,axion_run2.ax,axion,1 / 3,promised never,answered silently,0.08,0.3333333333333333333333333333
+5_calc,axion_run2.ax,axion,1.2.3 + 1,promised never,stopped,0.11,"ERROR R404 line 96:35 /       toks add {kind: ""num"", val: numtxt as number, pos: i + 1} /                                   ^^^^^^^^^^^^^^^^ / ""1.2.3"" cannot be converted to number."
+5_calc,axion_run2.ax,axion,3000 nested parentheses,extreme,stopped,2.0,"ERROR R406 line 65:13 /     inner = parse(t, p + 1, 0) /             ^^^^^^^^^^^^^^^^^^ / Function calls went more than 200 deep (the limit of the launch policy)."
+5_calc,axion_run2.ax,axion,"a sum of 50,001 ones",extreme,stopped,4.34,"ERROR R406 line 91:7 /       numtxt = """" /       ^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy)."
+5_calc,axion_run2.ax,axion,"10,000 lines",big but valid,stopped,5.11,ERROR R406 line 7:7 /       op = t[cur.p].kind /       ^^^^^^^^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run2.ax,axion,an extra field,extra field,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^ / The input data has mode, which the program does not declare."
+5_calc,axion_run3.ax,axion,a line is a number 5,wrong type,stopped,0.08,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got a number."
+5_calc,axion_run3.ax,axion,a line is null,null,stopped,0.11,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got null."
+5_calc,axion_run3.ax,axion,lines is one text,wrong shape,stopped,0.07,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines must be list of text, got text."
+5_calc,axion_run3.ax,axion,no lines at all,missing,stopped,0.09,ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / input lines was not provided.
+5_calc,axion_run3.ax,axion,lines is a list of lists,wrong shape,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[0] must be text, got an array."
+5_calc,axion_run3.ax,axion,9 ^ 9 ^ 9,extreme,stopped,0.1,ERROR R412 line 28:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run3.ax,axion,2 ^ 100000,extreme,stopped,0.09,ERROR R412 line 28:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run3.ax,axion,2 ^ 0.5,promised never,answered silently,0.09,1.414213562373095048801688724
+5_calc,axion_run3.ax,axion,2 ^ -1,promised never,answered silently,0.1,0.5
+5_calc,axion_run3.ax,axion,1 / 3,promised never,answered silently,0.09,0.3333333333333333333333333333
+5_calc,axion_run3.ax,axion,1.2.3 + 1,promised never,own error line,0.08,"ошибка: ожидалось число, позиция 1"
+5_calc,axion_run3.ax,axion,3000 nested parentheses,extreme,right,0.5,
+5_calc,axion_run3.ax,axion,"a sum of 50,001 ones",extreme,stopped,2.71,ERROR R406 line 43:7 /       i = i + 1 /       ^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run3.ax,axion,"10,000 lines",big but valid,stopped,3.24,ERROR R406 line 85:9 /         tok = toks[k] /         ^^^^^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run3.ax,axion,an extra field,extra field,stopped,0.1,"ERROR R407 line 1:1 / input lines: list of text / ^ / The input data has mode, which the program does not declare."
+5_calc,axion_run4.ax,axion,a line is a number 5,wrong type,stopped,0.13,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got a number."
+5_calc,axion_run4.ax,axion,a line is null,null,stopped,0.11,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got null."
+5_calc,axion_run4.ax,axion,lines is one text,wrong shape,stopped,0.11,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines must be list of text, got text."
+5_calc,axion_run4.ax,axion,no lines at all,missing,stopped,0.12,ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / input lines was not provided.
+5_calc,axion_run4.ax,axion,lines is a list of lists,wrong shape,stopped,0.12,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[0] must be text, got an array."
+5_calc,axion_run4.ax,axion,9 ^ 9 ^ 9,extreme,stopped,0.11,ERROR R412 line 26:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run4.ax,axion,2 ^ 100000,extreme,stopped,0.08,ERROR R412 line 26:10 /   return a ** b /          ^^^^^^ / The result of ** is too large for a number.
+5_calc,axion_run4.ax,axion,2 ^ 0.5,promised never,answered silently,0.08,1.414213562373095048801688724
+5_calc,axion_run4.ax,axion,2 ^ -1,promised never,answered silently,0.08,0.5
+5_calc,axion_run4.ax,axion,1 / 3,promised never,answered silently,0.09,0.3333333333333333333333333333
+5_calc,axion_run4.ax,axion,1.2.3 + 1,promised never,stopped,0.08,"ERROR R404 line 45:30 /       toks add {k: ""num"", n: piece as number, p: i + 1} /                              ^^^^^^^^^^^^^^^ / ""1.2.3"" cannot be converted to number."
+5_calc,axion_run4.ax,axion,3000 nested parentheses,extreme,right,0.54,
+5_calc,axion_run4.ax,axion,"a sum of 50,001 ones",extreme,stopped,5.72,ERROR R406 line 49:7 /       i = i + 1 /       ^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run4.ax,axion,"10,000 lines",big but valid,stopped,5.35,"ERROR R406 line 17:3 /   if op == ""+"" /   ^^^ / The program ran more than 1000000 steps (the limit of the launch policy)."
+5_calc,axion_run4.ax,axion,an extra field,extra field,stopped,0.08,"ERROR R407 line 1:1 / input lines: list of text / ^ / The input data has mode, which the program does not declare."
+5_calc,axion_run5.ax,axion,a line is a number 5,wrong type,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got a number."
+5_calc,axion_run5.ax,axion,a line is null,null,stopped,0.09,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[1] must be text, got null."
+5_calc,axion_run5.ax,axion,lines is one text,wrong shape,stopped,0.12,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines must be list of text, got text."
+5_calc,axion_run5.ax,axion,no lines at all,missing,stopped,0.07,ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / input lines was not provided.
+5_calc,axion_run5.ax,axion,lines is a list of lists,wrong shape,stopped,0.1,"ERROR R407 line 1:1 / input lines: list of text / ^^^^^^^^^^^^^^^^^^^^^^^^^ / Input data: lines[0] must be text, got an array."
+5_calc,axion_run5.ax,axion,9 ^ 9 ^ 9,extreme,stopped,0.07,"ERROR R412 line 78:18 /     return {val: base.val ** ex.val, pos: ex.pos, err: """"} /                  ^^^^^^^^^^^^^^^^^^ / The result of ** is too large for a number."
+5_calc,axion_run5.ax,axion,2 ^ 100000,extreme,stopped,0.07,"ERROR R412 line 78:18 /     return {val: base.val ** ex.val, pos: ex.pos, err: """"} /                  ^^^^^^^^^^^^^^^^^^ / The result of ** is too large for a number."
+5_calc,axion_run5.ax,axion,2 ^ 0.5,promised never,answered silently,0.13,1.414213562373095048801688724
+5_calc,axion_run5.ax,axion,2 ^ -1,promised never,answered silently,0.11,0.5
+5_calc,axion_run5.ax,axion,1 / 3,promised never,answered silently,0.1,0.3333333333333333333333333333
+5_calc,axion_run5.ax,axion,1.2.3 + 1,promised never,stopped,0.11,"ERROR R404 line 48:18 /     return {val: t.val as number, pos: p + 1, err: """"} /                  ^^^^^^^^^^^^^^^ / ""1.2.3"" cannot be converted to number."
+5_calc,axion_run5.ax,axion,3000 nested parentheses,extreme,stopped,2.02,"ERROR R406 line 51:13 /     inner = parseExpr(toks, p + 1) /             ^^^^^^^^^^^^^^^^^^^^^^ / Function calls went more than 200 deep (the limit of the launch policy)."
+5_calc,axion_run5.ax,axion,"a sum of 50,001 ones",extreme,stopped,2.57,"ERROR R406 line 14:11 /           if ""0123456789."" contains s[j] /           ^^^ / The program ran more than 1000000 steps (the limit of the launch policy)."
+5_calc,axion_run5.ax,axion,"10,000 lines",big but valid,stopped,3.93,ERROR R406 line 15:13 /             j = j + 1 /             ^^^^^^^^^ / The program ran more than 1000000 steps (the limit of the launch policy).
+5_calc,axion_run5.ax,axion,an extra field,extra field,stopped,0.11,"ERROR R407 line 1:1 / input lines: list of text / ^ / The input data has mode, which the program does not declare."
+5_calc,python_run1.py,python,a line is a number 5,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+5_calc,python_run1.py,python,a line is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+5_calc,python_run1.py,python,lines is one text,wrong shape,answered silently,0.03,"2 | ошибка: пустое выражение | ошибка: ожидалось число, позиция 1 | ошибка: пустое выражение"
+5_calc,python_run1.py,python,no lines at all,missing,stopped,0.04,KeyError: 'lines'
+5_calc,python_run1.py,python,lines is a list of lists,wrong shape,stopped,0.04,AttributeError: 'list' object has no attribute 'strip'
+5_calc,python_run1.py,python,9 ^ 9 ^ 9,extreme,hung,10,no end in 10 s
+5_calc,python_run1.py,python,2 ^ 100000,extreme,stopped,0.05,ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+5_calc,python_run1.py,python,2 ^ 0.5,promised never,answered silently,0.04,1.4142135623730951454746218587388284504413604736328125
+5_calc,python_run1.py,python,2 ^ -1,promised never,answered silently,0.03,0.5
+5_calc,python_run1.py,python,1 / 3,promised never,answered silently,0.03,0.333333333333333333333333333333333333333333333333333333333333
+5_calc,python_run1.py,python,1.2.3 + 1,promised never,stopped,0.04,decimal.InvalidOperation: [<class 'decimal.ConversionSyntax'>]
+5_calc,python_run1.py,python,3000 nested parentheses,extreme,stopped,0.08,RecursionError: maximum recursion depth exceeded
+5_calc,python_run1.py,python,"a sum of 50,001 ones",extreme,right,0.17,
+5_calc,python_run1.py,python,"10,000 lines",big but valid,right,0.17,
+5_calc,python_run1.py,python,an extra field,extra field,right,0.03,
+5_calc,python_run2.py,python,a line is a number 5,wrong type,answered silently,0.04,
+5_calc,python_run2.py,python,a line is null,null,answered silently,0.03,
+5_calc,python_run2.py,python,lines is one text,wrong shape,answered silently,0.03,"2 | ошибка: пустое выражение | ошибка: ожидалось число, позиция 1 | ошибка: пустое выражение"
+5_calc,python_run2.py,python,no lines at all,missing,answered silently,0.04,
+5_calc,python_run2.py,python,lines is a list of lists,wrong shape,own error line,0.03,"ошибка: неизвестный символ '2 + 3', позиция 1"
+5_calc,python_run2.py,python,9 ^ 9 ^ 9,extreme,hung,10,no end in 10 s
+5_calc,python_run2.py,python,2 ^ 100000,extreme,wrong,0.04,
+5_calc,python_run2.py,python,2 ^ 0.5,promised never,own error line,0.03,"ошибка: ожидалось число, позиция 3"
+5_calc,python_run2.py,python,2 ^ -1,promised never,answered silently,0.03,0.5
+5_calc,python_run2.py,python,1 / 3,promised never,hung,10,no end in 10 s
+5_calc,python_run2.py,python,1.2.3 + 1,promised never,own error line,0.04,"ошибка: ожидалось число, позиция 1"
+5_calc,python_run2.py,python,3000 nested parentheses,extreme,right,0.04,
+5_calc,python_run2.py,python,"a sum of 50,001 ones",extreme,right,0.23,
+5_calc,python_run2.py,python,"10,000 lines",big but valid,right,0.25,
+5_calc,python_run2.py,python,an extra field,extra field,right,0.04,
+5_calc,python_run3.py,python,a line is a number 5,wrong type,answered silently,0.05,
+5_calc,python_run3.py,python,a line is null,null,answered silently,0.05,
+5_calc,python_run3.py,python,lines is one text,wrong shape,answered silently,0.03,"2 | ошибка: пустое выражение | ошибка: ожидалось число, позиция 1 | ошибка: пустое выражение"
+5_calc,python_run3.py,python,no lines at all,missing,answered silently,0.04,
+5_calc,python_run3.py,python,lines is a list of lists,wrong shape,own error line,0.04,"ошибка: неизвестный символ '2 + 3', позиция 1"
+5_calc,python_run3.py,python,9 ^ 9 ^ 9,extreme,hung,10,no end in 10 s
+5_calc,python_run3.py,python,2 ^ 100000,extreme,wrong,0.04,
+5_calc,python_run3.py,python,2 ^ 0.5,promised never,own error line,0.03,"ошибка: ожидалось число, позиция 3"
+5_calc,python_run3.py,python,2 ^ -1,promised never,answered silently,0.03,0.5
+5_calc,python_run3.py,python,1 / 3,promised never,answered silently,0.03,0.3333333333333333333333333333333333333333333333333333333333333
+5_calc,python_run3.py,python,1.2.3 + 1,promised never,own error line,0.03,"ошибка: ожидалось число, позиция 1"
+5_calc,python_run3.py,python,3000 nested parentheses,extreme,right,0.04,
+5_calc,python_run3.py,python,"a sum of 50,001 ones",extreme,right,0.16,
+5_calc,python_run3.py,python,"10,000 lines",big but valid,right,0.27,
+5_calc,python_run3.py,python,an extra field,extra field,right,0.03,
+5_calc,python_run4.py,python,a line is a number 5,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'strip'
+5_calc,python_run4.py,python,a line is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'strip'
+5_calc,python_run4.py,python,lines is one text,wrong shape,answered silently,0.03,"2 | ошибка: пустое выражение | ошибка: ожидалось число, позиция 1 | ошибка: пустое выражение"
+5_calc,python_run4.py,python,no lines at all,missing,stopped,0.04,KeyError: 'lines'
+5_calc,python_run4.py,python,lines is a list of lists,wrong shape,stopped,0.04,AttributeError: 'list' object has no attribute 'strip'
+5_calc,python_run4.py,python,9 ^ 9 ^ 9,extreme,hung,10,no end in 10 s
+5_calc,python_run4.py,python,2 ^ 100000,extreme,stopped,0.04,ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+5_calc,python_run4.py,python,2 ^ 0.5,promised never,answered silently,0.03,1.4142135623730951454746218587388284504413604736328125
+5_calc,python_run4.py,python,2 ^ -1,promised never,answered silently,0.03,0.5
+5_calc,python_run4.py,python,1 / 3,promised never,answered silently,0.03,0.333333333333333
+5_calc,python_run4.py,python,1.2.3 + 1,promised never,own error line,0.03,"ошибка: ожидалось число, позиция 1"
+5_calc,python_run4.py,python,3000 nested parentheses,extreme,stopped,0.09,RecursionError: maximum recursion depth exceeded
+5_calc,python_run4.py,python,"a sum of 50,001 ones",extreme,right,0.21,
+5_calc,python_run4.py,python,"10,000 lines",big but valid,right,0.18,
+5_calc,python_run4.py,python,an extra field,extra field,right,0.03,
+5_calc,python_run5.py,python,a line is a number 5,wrong type,stopped,0.04,AttributeError: 'int' object has no attribute 'replace'
+5_calc,python_run5.py,python,a line is null,null,stopped,0.04,AttributeError: 'NoneType' object has no attribute 'replace'
+5_calc,python_run5.py,python,lines is one text,wrong shape,answered silently,0.03,"2 | ошибка: пустое выражение | ошибка: ожидалось число, позиция 1 | ошибка: пустое выражение"
+5_calc,python_run5.py,python,no lines at all,missing,stopped,0.04,KeyError: 'lines'
+5_calc,python_run5.py,python,lines is a list of lists,wrong shape,stopped,0.04,AttributeError: 'list' object has no attribute 'replace'
+5_calc,python_run5.py,python,9 ^ 9 ^ 9,extreme,hung,10,no end in 10 s
+5_calc,python_run5.py,python,2 ^ 100000,extreme,stopped,0.04,ValueError: Exceeds the limit (4300 digits) for integer string conversion; use sys.set_int_max_str_digits() to increase the limit
+5_calc,python_run5.py,python,2 ^ 0.5,promised never,answered silently,0.03,1
+5_calc,python_run5.py,python,2 ^ -1,promised never,answered silently,0.03,0.5
+5_calc,python_run5.py,python,1 / 3,promised never,answered silently,0.03,0.3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
+5_calc,python_run5.py,python,1.2.3 + 1,promised never,own error line,0.03,"ошибка: ожидалось число, позиция 1"
+5_calc,python_run5.py,python,3000 nested parentheses,extreme,right,0.03,
+5_calc,python_run5.py,python,"a sum of 50,001 ones",extreme,right,0.2,
+5_calc,python_run5.py,python,"10,000 lines",big but valid,right,0.18,
+5_calc,python_run5.py,python,an extra field,extra field,right,0.02,

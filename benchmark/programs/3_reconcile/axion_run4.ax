@@ -1,0 +1,123 @@
+input a: list of {id: text, date: text, amount: text}
+input b: list of {id: text, date: text, amount: text}
+
+function fmt(x: number) -> text
+  s = (x round 2) as text
+  if s contains "."
+    parts = s split "."
+    if parts[1] length == 1
+      s = s + "0"
+    end
+  else
+    s = s + ".00"
+  end
+  return s
+end
+
+function padl(s: text) -> text
+  t = s
+  while t length < 9
+    t = " " + t
+  end
+  return t
+end
+
+adates = {} of text
+aamts = {} of number
+acnt = {} of number
+suma = 0
+for r in a
+  id = r.id trim upper
+  amt = ((r.amount trim split ",") join ".") as number
+  if adates contains id
+    acnt[id] = acnt[id] + 1
+  else
+    adates[id] = r.date
+    aamts[id] = amt
+    acnt[id] = 1
+    suma = suma + amt
+  end
+end
+
+bdates = {} of text
+bamts = {} of number
+bcnt = {} of number
+sumb = 0
+for r in b
+  id = r.id trim upper
+  amt = ((r.amount trim split ",") join ".") as number
+  if bdates contains id
+    bcnt[id] = bcnt[id] + 1
+  else
+    bdates[id] = r.date
+    bamts[id] = amt
+    bcnt[id] = 1
+    sumb = sumb + amt
+  end
+end
+
+akeys = adates keys sort
+bkeys = bdates keys sort
+
+matched = [] of text
+diffs = [] of text
+onlya = [] of text
+dupsa = [] of text
+for k in akeys
+  if acnt[k] > 1
+    dupsa add (k + " (" + acnt[k] as text + " раза)")
+  end
+  if bdates contains k
+    if adates[k] == bdates[k] and aamts[k] == bamts[k]
+      matched add k
+    else if aamts[k] != bamts[k]
+      d = if aamts[k] > bamts[k] then aamts[k] - bamts[k] else bamts[k] - aamts[k]
+      diffs add ("  " + k + "  сумма: " + fmt(aamts[k]) + " / " + fmt(bamts[k]) + " (разница " + fmt(d) + ")")
+    else
+      diffs add ("  " + k + "  дата: " + adates[k] + " / " + bdates[k])
+    end
+  else
+    onlya add ("  " + k + "  " + adates[k] + padl(fmt(aamts[k])))
+  end
+end
+
+onlyb = [] of text
+dupsb = [] of text
+for k in bkeys
+  if bcnt[k] > 1
+    dupsb add (k + " (" + bcnt[k] as text + " раза)")
+  end
+  if not (adates contains k)
+    onlyb add ("  " + k + "  " + bdates[k] + padl(fmt(bamts[k])))
+  end
+end
+
+print "Совпало: " + matched length as text
+if matched length > 0
+  print "  " + (matched join ", ")
+end
+print ""
+print "Расхождения: " + diffs length as text
+for line in diffs
+  print line
+end
+print ""
+print "Только в A: " + onlya length as text
+for line in onlya
+  print line
+end
+print ""
+print "Только в B: " + onlyb length as text
+for line in onlyb
+  print line
+end
+print ""
+if dupsa length > 0
+  print "Дубликаты в A: " + (dupsa join ", ")
+  print ""
+end
+if dupsb length > 0
+  print "Дубликаты в B: " + (dupsb join ", ")
+  print ""
+end
+print "Итого A: " + fmt(suma) + "   Итого B: " + fmt(sumb) + "   Разница: " + fmt(suma - sumb)

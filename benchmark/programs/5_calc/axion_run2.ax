@@ -1,0 +1,119 @@
+input lines: list of text
+
+function parse(t: list of {kind: text, val: number, pos: number}, p: number, lv: number) -> {v: number, p: number, err: text}
+  if lv == 0
+    cur = parse(t, p, 1)
+    while cur.err == "" and (t[cur.p].kind == "+" or t[cur.p].kind == "-")
+      op = t[cur.p].kind
+      right = parse(t, cur.p + 1, 1)
+      if right.err != ""
+        cur = right
+      else if op == "+"
+        cur = {v: cur.v + right.v, p: right.p, err: ""}
+      else
+        cur = {v: cur.v - right.v, p: right.p, err: ""}
+      end
+    end
+    return cur
+  end
+  if lv == 1
+    cur = parse(t, p, 2)
+    while cur.err == "" and (t[cur.p].kind == "*" or t[cur.p].kind == "/")
+      op = t[cur.p].kind
+      right = parse(t, cur.p + 1, 2)
+      if right.err != ""
+        cur = right
+      else if op == "*"
+        cur = {v: cur.v * right.v, p: right.p, err: ""}
+      else if right.v == 0
+        cur = {v: 0, p: right.p, err: "ошибка: деление на ноль"}
+      else
+        cur = {v: cur.v / right.v, p: right.p, err: ""}
+      end
+    end
+    return cur
+  end
+  if lv == 2
+    if t[p].kind == "-"
+      r = parse(t, p + 1, 2)
+      if r.err != ""
+        return r
+      end
+      return {v: r.v * (-1), p: r.p, err: ""}
+    end
+    return parse(t, p, 3)
+  end
+  if lv == 3
+    base = parse(t, p, 4)
+    if base.err != ""
+      return base
+    end
+    if t[base.p].kind == "^"
+      e = parse(t, base.p + 1, 2)
+      if e.err != ""
+        return e
+      end
+      return {v: base.v ** e.v, p: e.p, err: ""}
+    end
+    return base
+  end
+  tok = t[p]
+  if tok.kind == "num"
+    return {v: tok.val, p: p + 1, err: ""}
+  end
+  if tok.kind == "("
+    inner = parse(t, p + 1, 0)
+    if inner.err != ""
+      return inner
+    end
+    if t[inner.p].kind == ")"
+      return {v: inner.v, p: inner.p + 1, err: ""}
+    end
+    return {v: 0, p: inner.p, err: "ошибка: не закрыта скобка"}
+  end
+  return {v: 0, p: p, err: "ошибка: ожидалось число, позиция " + tok.pos as text}
+end
+
+digits = "0123456789."
+ops = "+-*/^()"
+for line in lines
+  n = line length
+  s = line + " "
+  toks = [] of {kind: text, val: number, pos: number}
+  out = ""
+  i = 0
+  while i < n and out == ""
+    ch = s[i]
+    if ch == " "
+      i = i + 1
+    else if digits contains ch
+      j = i
+      numtxt = ""
+      while digits contains s[j]
+        numtxt = numtxt + s[j]
+        j = j + 1
+      end
+      toks add {kind: "num", val: numtxt as number, pos: i + 1}
+      i = j
+    else if ops contains ch
+      toks add {kind: ch, val: 0, pos: i + 1}
+      i = i + 1
+    else
+      out = "ошибка: неизвестный символ '" + ch + "', позиция " + (i + 1) as text
+    end
+  end
+  if out == ""
+    if toks length == 0
+      out = "ошибка: пустое выражение"
+    else
+      toks add {kind: "end", val: 0, pos: n + 1}
+      r = parse(toks, 0, 0)
+      if r.err != ""
+        out = r.err
+      else
+        out = r.v as text
+      end
+    end
+  end
+  print out
+end

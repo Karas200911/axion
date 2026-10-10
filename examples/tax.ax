@@ -1,0 +1,20 @@
+# Tax for several amounts: functions with typed parameters.
+function tax(amount: number, rate: number) -> number
+  if amount <= 1000
+    return 0
+  end
+  return (amount - 1000) * rate
+end
+
+function report(label: text, amount_value: number)
+  print label + ": " + amount_value as text
+end
+
+amounts = [800, 1500, 12000]
+total = 0
+for a in amounts
+  t = tax(a, 0.13)
+  report("tax for " + a as text, t)
+  total = total + t
+end
+report("total", total)

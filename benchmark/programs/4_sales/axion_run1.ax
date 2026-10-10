@@ -1,0 +1,171 @@
+input sales: list of number
+
+function fmt2(x: number) -> text
+  s = (x round 2) as text
+  if s contains "."
+    parts = s split "."
+    frac = parts[1]
+    if frac length == 1
+      return s + "0"
+    end
+    return s
+  end
+  return s + ".00"
+end
+
+function weekly(xs: list of number) -> text
+  parts = [] of text
+  total = 0
+  cnt = 0
+  for x in xs
+    total = total + x
+    cnt = cnt + 1
+    if cnt == 7
+      t = total as text
+      parts add t
+      total = 0
+      cnt = 0
+    end
+  end
+  if cnt > 0
+    t2 = total as text
+    parts add t2
+  end
+  if parts length == 0
+    return "1. Суммы по неделям: нет"
+  end
+  return "1. Суммы по неделям: " + (parts join ", ")
+end
+
+function avgmed(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "2. Среднее: нет   Медиана: нет"
+  end
+  avg = (xs sum) / n
+  s = xs sort
+  med = 0
+  if n % 2 == 1
+    med = s[n // 2]
+  else
+    med = (s[n // 2 - 1] + s[n // 2]) / 2
+  end
+  return "2. Среднее: " + fmt2(avg) + "   Медиана: " + fmt2(med)
+end
+
+function moving(xs: list of number) -> text
+  n = xs length
+  if n < 3
+    return "3. Скользящее среднее: нет"
+  end
+  parts = [] of text
+  w = xs[0] + xs[1] + xs[2]
+  f = fmt2(w / 3)
+  parts add f
+  for i in 3 to n - 1
+    w = w + xs[i] - xs[i - 3]
+    g = fmt2(w / 3)
+    parts add g
+  end
+  return "3. Скользящее среднее: " + (parts join " ")
+end
+
+function bestfour(xs: list of number) -> text
+  n = xs length
+  if n < 4
+    return "4. Лучшие 4 дня подряд: нет"
+  end
+  w = xs[0] + xs[1] + xs[2] + xs[3]
+  best = w
+  start = 0
+  for i in 4 to n - 1
+    w = w + xs[i] - xs[i - 4]
+    if w > best
+      best = w
+      start = i - 3
+    end
+  end
+  a = (start + 1) as text
+  b = (start + 4) as text
+  return "4. Лучшие 4 дня подряд: дни " + a + "-" + b + ", сумма " + (best as text)
+end
+
+function longestrun(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "5. Самый длинный рост подряд: нет"
+  end
+  cur = 0
+  bstart = 0
+  blen = 1
+  for i in 1 to n - 1
+    if xs[i] > xs[i - 1]
+      ln = i - cur + 1
+      if ln > blen
+        blen = ln
+        bstart = cur
+      end
+    else
+      cur = i
+    end
+  end
+  vals = [] of text
+  for j in bstart to bstart + blen - 1
+    v = xs[j] as text
+    vals add v
+  end
+  a = (bstart + 1) as text
+  b = (bstart + blen) as text
+  return "5. Самый длинный рост подряд: дни " + a + "-" + b + " (" + (vals join ", ") + ")"
+end
+
+function top3(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "6. Топ-3 дня: нет"
+  end
+  limit = if n < 3 then n else 3
+  chosen = [] of number
+  parts = [] of text
+  for k in 1 to limit
+    bi = 0 - 1
+    bv = 0
+    for i in 0 to n - 1
+      if (not (chosen contains i)) and ((bi < 0) or (xs[i] > bv))
+        bi = i
+        bv = xs[i]
+      end
+    end
+    chosen add bi
+    d = (bi + 1) as text
+    sv = bv as text
+    p = "день " + d + " (" + sv + ")"
+    parts add p
+  end
+  return "6. Топ-3 дня: " + (parts join ", ")
+end
+
+function countbig(xs: list of number) -> text
+  n = xs length
+  s = xs sort
+  lo = 0
+  hi = n
+  while lo < hi
+    mid = (lo + hi) // 2
+    if s[mid] < 20
+      lo = mid + 1
+    else
+      hi = mid
+    end
+  end
+  c = n - lo
+  return "7. Дней с продажами не меньше 20: " + (c as text)
+end
+
+print weekly(sales)
+print avgmed(sales)
+print moving(sales)
+print bestfour(sales)
+print longestrun(sales)
+print top3(sales)
+print countbig(sales)

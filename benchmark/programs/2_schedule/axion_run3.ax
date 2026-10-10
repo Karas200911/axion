@@ -1,0 +1,55 @@
+input total: text
+input n: number
+input start: text
+
+function dim(y: number, m: number) -> number
+  if m == 2
+    leap = (y % 4 == 0 and y % 100 != 0) or y % 400 == 0
+    return if leap then 29 else 28
+  else if m == 4 or m == 6 or m == 9 or m == 11
+    return 30
+  else
+    return 31
+  end
+end
+
+function two(v: number) -> text
+  return if v < 10 then "0" + v as text else v as text
+end
+
+t = total as number
+if n < 1
+  print "error: n must be 1 or more"
+  exit
+end
+if t < 0
+  print "error: total must not be negative"
+  exit
+end
+cents = t * 100
+if cents != (cents floor)
+  print "error: total has fractions of a kopeck"
+  exit
+end
+all = cents floor
+base = all // n
+extra = all % n
+yr = start[0 to 3] as number
+mon = start[5 to 6] as number
+day = start[8 to 9] as number
+for i in 0 to n - 1
+  amt = base + (if i < extra then 1 else 0)
+  whole = amt // 100
+  frac = amt % 100
+  money = whole as text + "." + two(frac)
+  while money length < 9
+    money = " " + money
+  end
+  m0 = mon - 1 + i
+  y = yr + m0 // 12
+  mo = m0 % 12 + 1
+  dm = dim(y, mo)
+  d = if day < dm then day else dm
+  line = "  " + y as text + "-" + two(mo) + "-" + two(d) + money
+  print line
+end

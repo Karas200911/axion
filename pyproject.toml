@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axionlang"
+version = "0.3.0"
+description = "A sandbox for code that AI writes: a small language checked before it runs, with no file or network access, default limits, and data checked against the program's inputs."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{name = "Egor"}]
+requires-python = ">=3.10"
+dependencies = []
+keywords = ["llm", "sandbox", "ai-generated code", "safe execution", "language"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Interpreters",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://karas200911.github.io/axion/"
+Source = "https://github.com/Karas200911/axion"
+Issues = "https://github.com/Karas200911/axion/issues"
+Benchmark = "https://github.com/Karas200911/axion/tree/main/benchmark"
+
+[project.scripts]
+axionlang = "axionlang.__main__:cli"
+
+[tool.setuptools]
+packages = ["axionlang", "axionlang.engine"]
+
+[tool.setuptools.package-data]
+axionlang = ["CHEATSHEET.md"]

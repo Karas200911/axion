@@ -1,0 +1,59 @@
+input total: text
+input n: number
+input start: text
+
+function pad2(v: number) -> text
+  p = if v < 10 then "0" else ""
+  return p + v as text
+end
+
+function days_in(y: number, m: number) -> number
+  result = 31
+  if m == 2
+    if y % 4 == 0 and (y % 100 != 0 or y % 400 == 0)
+      result = 29
+    else
+      result = 28
+    end
+  else if m == 4 or m == 6 or m == 9 or m == 11
+    result = 30
+  end
+  return result
+end
+
+if n < 1
+  print "error: n must be 1 or more"
+  exit
+end
+t = total as number
+if t < 0
+  print "error: total must not be negative"
+  exit
+end
+scaled = t * 100
+if scaled != scaled floor
+  print "error: total has fractions of a kopeck"
+  exit
+end
+c = scaled floor
+base = c // n
+rem = c % n
+y0 = start[0 to 3] as number
+m0 = start[5 to 6] as number
+d0 = start[8 to 9] as number
+for i in 0 to n - 1
+  mi = m0 - 1 + i
+  yy = y0 + mi // 12
+  mm = mi % 12 + 1
+  dim = days_in(yy, mm)
+  dd = if d0 < dim then d0 else dim
+  extra = if i < rem then 1 else 0
+  cents = base + extra
+  whole = cents // 100
+  frac = cents % 100
+  amt = whole as text + "." + pad2(frac)
+  while amt length < 9
+    amt = " " + amt
+  end
+  print "  " + yy as text + "-" + pad2(mm) + "-" + pad2(dd) + amt
+end

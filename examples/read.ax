@@ -1,0 +1,3 @@
+# Reading a file needs two keys: the program asks (allow read), and the person running it grants the folder (policy.json).
+allow read "reports/"
+print read "reports/q1.txt"

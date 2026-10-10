@@ -1,0 +1,138 @@
+input a: list of {id: text, date: text, amount: text}
+input b: list of {id: text, date: text, amount: text}
+
+function fmt(n: number) -> text
+  sign = ""
+  x = n
+  if n < 0
+    sign = "-"
+    x = 0 - n
+  end
+  r = x round 2
+  w = r floor
+  f = ((r - w) * 100) floor
+  pad = if f < 10 then "0" else ""
+  return sign + w as text + "." + pad + f as text
+end
+
+function padl(s: text, width: number) -> text
+  out = s
+  while out length < width
+    out = " " + out
+  end
+  return out
+end
+
+da = {} of text
+ma = {} of number
+ca = {} of number
+ida = [] of text
+sa = 0
+for r in a
+  k = r.id trim upper
+  v = (r.amount split ",") join "."
+  if ca contains k
+    ca[k] = ca[k] + 1
+  else
+    ca[k] = 1
+    da[k] = r.date
+    ma[k] = v as number
+    ida add k
+    sa = sa + v as number
+  end
+end
+
+db = {} of text
+mb = {} of number
+cb = {} of number
+idb = [] of text
+sb = 0
+for r in b
+  k = r.id trim upper
+  v = (r.amount split ",") join "."
+  if cb contains k
+    cb[k] = cb[k] + 1
+  else
+    cb[k] = 1
+    db[k] = r.date
+    mb[k] = v as number
+    idb add k
+    sb = sb + v as number
+  end
+end
+
+matched = [] of text
+diffs = [] of text
+onlya = [] of text
+onlyb = [] of text
+sida = ida sort
+sidb = idb sort
+for k in sida
+  if mb contains k
+    if ma[k] == mb[k] and da[k] == db[k]
+      matched add k
+    else if ma[k] != mb[k]
+      d = ma[k] - mb[k]
+      if d < 0
+        d = 0 - d
+      end
+      line = "  " + k + "  сумма: " + fmt(ma[k]) + " / " + fmt(mb[k]) + " (разница " + fmt(d) + ")"
+      diffs add line
+    else
+      line = "  " + k + "  дата: " + da[k] + " / " + db[k]
+      diffs add line
+    end
+  else
+    line = "  " + k + "  " + da[k] + " " + padl(fmt(ma[k]), 8)
+    onlya add line
+  end
+end
+for k in sidb
+  if not (ma contains k)
+    line = "  " + k + "  " + db[k] + " " + padl(fmt(mb[k]), 8)
+    onlyb add line
+  end
+end
+
+print "Совпало: " + matched length as text
+if matched length > 0
+  print "  " + (matched join ", ")
+end
+print ""
+print "Расхождения: " + diffs length as text
+for line in diffs
+  print line
+end
+print ""
+print "Только в A: " + onlya length as text
+for line in onlya
+  print line
+end
+print ""
+print "Только в B: " + onlyb length as text
+for line in onlyb
+  print line
+end
+print ""
+
+dupa = [] of text
+for k in sida
+  if ca[k] > 1
+    dupa add k + " (" + ca[k] as text + " раза)"
+  end
+end
+if dupa length > 0
+  print "Дубликаты в A: " + (dupa join ", ")
+  print ""
+end
+dupb = [] of text
+for k in sidb
+  if cb[k] > 1
+    dupb add k + " (" + cb[k] as text + " раза)"
+  end
+end
+if dupb length > 0
+  print "Дубликаты в B: " + (dupb join ", ")
+  print ""
+end
+print "Итого A: " + fmt(sa) + "   Итого B: " + fmt(sb) + "   Разница: " + fmt(sa - sb)

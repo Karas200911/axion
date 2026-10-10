@@ -1,0 +1,158 @@
+input sales: list of number
+
+function fmt2(x: number) -> text
+  r = x round 2
+  n = (r * 100) floor
+  whole = n // 100
+  frac = n % 100
+  pad = if frac < 10 then "0" else ""
+  return (whole as text) + "." + pad + (frac as text)
+end
+
+function weekly(xs: list of number) -> text
+  if xs length == 0
+    return "нет"
+  end
+  parts = [] of text
+  i = 0
+  while i < xs length
+    s = 0
+    j = i
+    while j < xs length and j < i + 7
+      s = s + xs[j]
+      j = j + 1
+    end
+    parts add (s as text)
+    i = i + 7
+  end
+  return parts join ", "
+end
+
+function stats(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "Среднее: нет   Медиана: нет"
+  end
+  avg = xs sum / n
+  sorted = xs sort
+  med = 0
+  if n % 2 == 1
+    med = sorted[n // 2]
+  else
+    med = (sorted[n // 2 - 1] + sorted[n // 2]) / 2
+  end
+  return "Среднее: " + fmt2(avg) + "   Медиана: " + fmt2(med)
+end
+
+function moving(xs: list of number) -> text
+  n = xs length
+  if n < 3
+    return "нет"
+  end
+  parts = [] of text
+  s = xs[0] + xs[1] + xs[2]
+  parts add fmt2(s / 3)
+  for i in 3 to n - 1
+    s = s + xs[i] - xs[i - 3]
+    parts add fmt2(s / 3)
+  end
+  return parts join " "
+end
+
+function best4(xs: list of number) -> text
+  n = xs length
+  if n < 4
+    return "нет"
+  end
+  s = xs[0] + xs[1] + xs[2] + xs[3]
+  best = s
+  bestStart = 0
+  for i in 4 to n - 1
+    s = s + xs[i] - xs[i - 4]
+    if s > best
+      best = s
+      bestStart = i - 3
+    end
+  end
+  return "дни " + ((bestStart + 1) as text) + "-" + ((bestStart + 4) as text) + ", сумма " + (best as text)
+end
+
+function growth(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "нет"
+  end
+  start = 0
+  bestStart = 0
+  bestRun = 1
+  for i in 1 to n - 1
+    if xs[i] <= xs[i - 1]
+      start = i
+    end
+    run = i - start + 1
+    if run > bestRun
+      bestRun = run
+      bestStart = start
+    end
+  end
+  parts = [] of text
+  for k in bestStart to bestStart + bestRun - 1
+    parts add (xs[k] as text)
+  end
+  return "дни " + ((bestStart + 1) as text) + "-" + ((bestStart + bestRun) as text) + " (" + (parts join ", ") + ")"
+end
+
+function top3(xs: list of number) -> text
+  n = xs length
+  if n == 0
+    return "нет"
+  end
+  idx = [] of number
+  for i in 0 to n - 1
+    p = 0
+    while p < idx length and xs[idx[p]] >= xs[i]
+      p = p + 1
+    end
+    if p < 3
+      fresh = [] of number
+      for k in 0 to p - 1
+        fresh add idx[k]
+      end
+      fresh add i
+      for k in p to idx length - 1
+        if fresh length < 3
+          fresh add idx[k]
+        end
+      end
+      idx = fresh
+    end
+  end
+  parts = [] of text
+  for k in idx
+    parts add ("день " + ((k + 1) as text) + " (" + (xs[k] as text) + ")")
+  end
+  return parts join ", "
+end
+
+function countBig(xs: list of number) -> number
+  s = xs sort
+  lo = 0
+  hi = s length
+  while lo < hi
+    mid = (lo + hi) // 2
+    if s[mid] >= 20
+      hi = mid
+    else
+      lo = mid + 1
+    end
+  end
+  return s length - lo
+end
+
+print "1. Суммы по неделям: " + weekly(sales)
+print "2. " + stats(sales)
+print "3. Скользящее среднее: " + moving(sales)
+print "4. Лучшие 4 дня подряд: " + best4(sales)
+print "5. Самый длинный рост подряд: " + growth(sales)
+print "6. Топ-3 дня: " + top3(sales)
+print "7. Дней с продажами не меньше 20: " + (countBig(sales) as text)

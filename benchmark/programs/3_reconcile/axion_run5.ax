@@ -1,0 +1,118 @@
+input a: list of {id: text, date: text, amount: text}
+input b: list of {id: text, date: text, amount: text}
+function fmt(n: number) -> text
+  neg = n < 0
+  v = if neg then n * (-1) else n
+  c = ((v round 2) * 100) floor
+  whole = c // 100
+  cents = c % 100
+  sign = if neg then "-" else ""
+  zero = if cents < 10 then "0" else ""
+  return sign + whole as text + "." + zero + cents as text
+end
+function pad(s: text, w: number) -> text
+  out = s
+  while out length < w
+    out = " " + out
+  end
+  return out
+end
+datesA = {} of text
+amtA = {} of number
+cntA = {} of number
+idsA = [] of text
+sumA = 0
+for r in a
+  id = r.id trim upper
+  am = (((r.amount trim) split ",") join ".") as number
+  if cntA contains id
+    cntA[id] = cntA[id] + 1
+  else
+    cntA[id] = 1
+    datesA[id] = r.date
+    amtA[id] = am
+    idsA add id
+    sumA = sumA + am
+  end
+end
+datesB = {} of text
+amtB = {} of number
+cntB = {} of number
+idsB = [] of text
+sumB = 0
+for r in b
+  id = r.id trim upper
+  am = (((r.amount trim) split ",") join ".") as number
+  if cntB contains id
+    cntB[id] = cntB[id] + 1
+  else
+    cntB[id] = 1
+    datesB[id] = r.date
+    amtB[id] = am
+    idsB add id
+    sumB = sumB + am
+  end
+end
+sa = idsA sort
+sb = idsB sort
+matched = [] of text
+diffs = [] of text
+onlyA = [] of text
+onlyB = [] of text
+dupA = [] of text
+dupB = [] of text
+for id in sa
+  if cntA[id] > 1
+    dupA add id + " (" + cntA[id] as text + " раза)"
+  end
+  if cntB contains id
+    if amtA[id] != amtB[id]
+      d = amtA[id] - amtB[id]
+      d = if d < 0 then d * (-1) else d
+      diffs add "  " + id + "  сумма: " + fmt(amtA[id]) + " / " + fmt(amtB[id]) + " (разница " + fmt(d) + ")"
+    else if datesA[id] != datesB[id]
+      diffs add "  " + id + "  дата: " + datesA[id] + " / " + datesB[id]
+    else
+      matched add id
+    end
+  else
+    onlyA add "  " + id + "  " + datesA[id] + pad(fmt(amtA[id]), 9)
+  end
+end
+for id in sb
+  if cntB[id] > 1
+    dupB add id + " (" + cntB[id] as text + " раза)"
+  end
+  if not (cntA contains id)
+    onlyB add "  " + id + "  " + datesB[id] + pad(fmt(amtB[id]), 9)
+  end
+end
+print "Совпало: " + matched length as text
+if matched length > 0
+  print "  " + (matched join ", ")
+end
+print ""
+print "Расхождения: " + diffs length as text
+for l in diffs
+  print l
+end
+print ""
+print "Только в A: " + onlyA length as text
+for l in onlyA
+  print l
+end
+print ""
+print "Только в B: " + onlyB length as text
+for l in onlyB
+  print l
+end
+print ""
+if dupA length > 0
+  print "Дубликаты в A: " + (dupA join ", ")
+  print ""
+end
+if dupB length > 0
+  print "Дубликаты в B: " + (dupB join ", ")
+  print ""
+end
+print "Итого A: " + fmt(sumA) + "   Итого B: " + fmt(sumB) + "   Разница: " + fmt(sumA - sumB)

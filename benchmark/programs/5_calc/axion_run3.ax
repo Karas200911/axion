@@ -1,0 +1,165 @@
+input lines: list of text
+
+function prec(op: text) -> number
+  if op == "+"
+    return 1
+  else if op == "-"
+    return 1
+  else if op == "*"
+    return 2
+  else if op == "/"
+    return 2
+  else if op == "n"
+    return 3
+  end
+  return 4
+end
+
+function calc(op: text, a: number, b: number) -> number
+  if op == "+"
+    return a + b
+  else if op == "-"
+    return a - b
+  else if op == "*"
+    return a * b
+  else if op == "/"
+    return a / b
+  end
+  return a ** b
+end
+
+for line in lines
+  s = line
+  n = s length
+  toks = [] of text
+  kinds = [] of text
+  pos = [] of number
+  err = ""
+  out = ""
+  i = 0
+  while i < n
+    ch = s[i]
+    if ch == " "
+      i = i + 1
+    else if "0123456789." contains ch
+      j = i
+      go = true
+      while go
+        if j >= n
+          go = false
+        else if "0123456789." contains (s[j])
+          j = j + 1
+        else
+          go = false
+        end
+      end
+      toks add s[i to j - 1]
+      kinds add "n"
+      pos add i + 1
+      i = j
+    else if "+-*/^()" contains ch
+      toks add ch
+      kinds add "o"
+      pos add i + 1
+      i = i + 1
+    else
+      err = "ошибка: неизвестный символ '" + ch + "', позиция " + (i + 1) as text
+      break
+    end
+  end
+  if err != ""
+    out = err
+  else if toks length == 0
+    out = "ошибка: пустое выражение"
+  else
+    ops = [] of text
+    vals = [] of number
+    expect = true
+    m = toks length
+    for k in 0 to m
+      ppos = n + 1
+      tok = "$end"
+      kind = "e"
+      if k < m
+        ppos = pos[k]
+        tok = toks[k]
+        kind = kinds[k]
+      end
+      if expect
+        if kind == "n" and tok is number
+          vals add (tok as number)
+          expect = false
+        else if tok == "("
+          ops add "("
+        else if tok == "-"
+          ops add "n"
+        else
+          err = "ошибка: ожидалось число, позиция " + ppos as text
+        end
+      else if kind == "n" or tok == "("
+        err = "ошибка: ожидалось число, позиция " + ppos as text
+      else
+        p = 0
+        if tok == "^"
+          p = 5
+        else if tok == "$end"
+          p = 0
+        else if tok == ")"
+          p = 0
+        else
+          p = prec(tok)
+        end
+        while ops length > 0
+          top = ops[ops length - 1]
+          if top == "("
+            break
+          end
+          if prec(top) < p
+            break
+          end
+          ops remove index ops length - 1
+          if top == "n"
+            a = vals[vals length - 1]
+            vals[vals length - 1] = 0 - a
+          else
+            b = vals[vals length - 1]
+            vals remove index vals length - 1
+            a = vals[vals length - 1]
+            if top == "/" and b == 0
+              err = "ошибка: деление на ноль"
+              break
+            else
+              vals[vals length - 1] = calc(top, a, b)
+            end
+          end
+        end
+        if err == ""
+          if tok == "$end"
+            if ops length > 0
+              err = "ошибка: не закрыта скобка"
+            end
+          else if tok == ")"
+            if ops length == 0
+              err = "ошибка: ожидалось число, позиция " + ppos as text
+            else
+              ops remove index ops length - 1
+            end
+          else
+            ops add tok
+            expect = true
+          end
+        end
+      end
+      if err != ""
+        break
+      end
+    end
+    if err != ""
+      out = err
+    else
+      r = vals[0]
+      out = r as text
+    end
+  end
+  print out
+end

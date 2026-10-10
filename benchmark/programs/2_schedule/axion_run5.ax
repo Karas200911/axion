@@ -1,0 +1,61 @@
+input total: text
+input n: number
+input start: text
+
+function pad2(x: number) -> text
+  p = if x < 10 then "0" else ""
+  return p + x as text
+end
+
+function dim(yy: number, mm: number) -> number
+  r = 31
+  if mm == 2
+    if (yy % 4 == 0 and yy % 100 != 0) or yy % 400 == 0
+      r = 29
+    else
+      r = 28
+    end
+  else if mm == 4 or mm == 6 or mm == 9 or mm == 11
+    r = 30
+  end
+  return r
+end
+
+function money(a: number) -> text
+  whole = a // 100
+  frac = a % 100
+  s = whole as text + "." + pad2(frac)
+  while s length < 9
+    s = " " + s
+  end
+  return s
+end
+
+t = total as number
+if n < 1
+  print "error: n must be 1 or more"
+  exit
+end
+if t < 0
+  print "error: total must not be negative"
+  exit
+end
+c = t * 100
+if c != c floor
+  print "error: total has fractions of a kopeck"
+  exit
+end
+cents = c floor
+base = cents // n
+rem = cents % n
+y = start[0 to 3] as number
+m = start[5 to 6] as number
+d = start[8 to 9] as number
+for i in 0 to n - 1
+  k = m - 1 + i
+  yy = y + k // 12
+  mm = k % 12 + 1
+  dd = if d < dim(yy, mm) then d else dim(yy, mm)
+  amt = base + (if i < rem then 1 else 0)
+  print "  " + yy as text + "-" + pad2(mm) + "-" + pad2(dd) + money(amt)
+end

@@ -1,0 +1,11 @@
+# A shopping cart: the total, with 10% off above 1000.
+# The first line is a contract: the data must have exactly this shape, or nothing runs.
+input cart: list of {price: number, qty: number}
+total = 0
+for item in cart
+  total = total + item.price * item.qty
+end
+if total > 1000
+  total = total * 0.9
+end
+print "Total: " + total as text

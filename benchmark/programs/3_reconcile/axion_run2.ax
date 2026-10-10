@@ -1,0 +1,115 @@
+input a: list of {id: text, date: text, amount: text}
+input b: list of {id: text, date: text, amount: text}
+function money(n: number) -> text
+  s = (n round 2) as text
+  parts = s split "."
+  result = s
+  if parts length == 1
+    result = s + ".00"
+  else if parts[1] length == 1
+    result = s + "0"
+  end
+  return result
+end
+function lpad(s: text, w: number) -> text
+  result = s
+  while result length < w
+    result = " " + result
+  end
+  return result
+end
+da = {} of text
+aa = {} of number
+ca = {} of number
+totA = 0
+for r in a
+  id = r.id trim upper
+  amt = ((r.amount split ",") join ".") as number
+  if da contains id
+    ca[id] = ca[id] + 1
+  else
+    da[id] = r.date
+    aa[id] = amt
+    ca[id] = 1
+    totA = totA + amt
+  end
+end
+db = {} of text
+ab = {} of number
+cb = {} of number
+totB = 0
+for r in b
+  id = r.id trim upper
+  amt = ((r.amount split ",") join ".") as number
+  if db contains id
+    cb[id] = cb[id] + 1
+  else
+    db[id] = r.date
+    ab[id] = amt
+    cb[id] = 1
+    totB = totB + amt
+  end
+end
+matched = [] of text
+diffs = [] of text
+onlyA = [] of text
+onlyB = [] of text
+dupsA = [] of text
+dupsB = [] of text
+for id in da keys sort
+  if ca[id] > 1
+    dupsA add id + " (" + ca[id] as text + " раза)"
+  end
+  if db contains id
+    if aa[id] == ab[id] and da[id] == db[id]
+      matched add id
+    else if aa[id] != ab[id]
+      d = aa[id] - ab[id]
+      if d < 0
+        d = d * (-1)
+      end
+      diffs add "  " + id + "  сумма: " + money(aa[id]) + " / " + money(ab[id]) + " (разница " + money(d) + ")"
+    else
+      diffs add "  " + id + "  дата: " + da[id] + " / " + db[id]
+    end
+  else
+    onlyA add "  " + id + "  " + da[id] + lpad(money(aa[id]), 9)
+  end
+end
+for id in db keys sort
+  if cb[id] > 1
+    dupsB add id + " (" + cb[id] as text + " раза)"
+  end
+  if not (da contains id)
+    onlyB add "  " + id + "  " + db[id] + lpad(money(ab[id]), 9)
+  end
+end
+print "Совпало: " + matched length as text
+if matched length > 0
+  print "  " + (matched join ", ")
+end
+print ""
+print "Расхождения: " + diffs length as text
+for line in diffs
+  print line
+end
+print ""
+print "Только в A: " + onlyA length as text
+for line in onlyA
+  print line
+end
+print ""
+print "Только в B: " + onlyB length as text
+for line in onlyB
+  print line
+end
+print ""
+if dupsA length > 0
+  print "Дубликаты в A: " + (dupsA join ", ")
+  print ""
+end
+if dupsB length > 0
+  print "Дубликаты в B: " + (dupsB join ", ")
+  print ""
+end
+print "Итого A: " + money(totA) + "   Итого B: " + money(totB) + "   Разница: " + money(totA - totB)

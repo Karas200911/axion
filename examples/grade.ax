@@ -1,0 +1,15 @@
+# A grade from a score: if / else if, and a block inside a block.
+score = 82
+bonus = true
+grade = "F"
+if score >= 90
+  grade = "A"
+else if score >= 75
+  grade = "B"
+  if bonus
+    grade = grade + "+"
+  end
+else if score >= 60
+  grade = "C"
+end
+print "Grade: " + grade

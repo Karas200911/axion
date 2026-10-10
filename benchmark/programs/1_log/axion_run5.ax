@@ -1,0 +1,111 @@
+input log: text
+
+function allin(w: text, chars: text) -> bool
+  for ch in w
+    if not (chars contains ch)
+      return false
+    end
+  end
+  return true
+end
+
+function padr(s: text) -> text
+  r = s
+  while r length < 13
+    r = r + " "
+  end
+  return r
+end
+
+function valid(s: text) -> bool
+  if s length < 22
+    return false
+  end
+  digits = "0123456789"
+  for i in [0, 1, 2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17, 18]
+    if not (digits contains s[i])
+      return false
+    end
+  end
+  if s[4] != "-" or s[7] != "-"
+    return false
+  end
+  if s[10] != " " or s[19] != " "
+    return false
+  end
+  if s[13] != ":" or s[16] != ":"
+    return false
+  end
+  parts = (s[20 to s length - 1]) split " "
+  if parts length < 2
+    return false
+  end
+  lv = parts[0]
+  md = parts[1]
+  letters = "abcdefghijklmnopqrstuvwxyz"
+  if lv length == 0
+    return false
+  end
+  if not (allin(lv lower, letters))
+    return false
+  end
+  if md length < 2
+    return false
+  end
+  if not (md ends with ":")
+    return false
+  end
+  if not (allin(md[0 to md length - 2], letters))
+    return false
+  end
+  return true
+end
+
+skipped = 0
+levels = {} of number
+hours = {} of number
+mods = {} of number
+lines = log split "\n"
+for line in lines
+  if line trim != ""
+    if valid(line)
+      parts = (line[20 to line length - 1]) split " "
+      lv = parts[0] upper
+      levels[lv] = if levels contains lv then levels[lv] + 1 else 1
+      if lv == "ERROR"
+        hk = line[0 to 12]
+        hours[hk] = if hours contains hk then hours[hk] + 1 else 1
+        mraw = parts[1]
+        mn = mraw[0 to mraw length - 2]
+        mods[mn] = if mods contains mn then mods[mn] + 1 else 1
+      end
+    else
+      skipped = skipped + 1
+    end
+  end
+end
+
+print "Уровни:"
+ll = [] of {name: text, cnt: number}
+for k in levels keys
+  ll add {name: k, cnt: levels[k]}
+end
+for it in ll sort by cnt descending, name
+  print "  " + padr(it.name) + it.cnt as text
+end
+print ""
+print "Ошибки по часам:"
+for k in hours keys sort
+  print "  " + k + ":00    " + hours[k] as text
+end
+print ""
+print "Ошибки по модулям:"
+ml = [] of {name: text, cnt: number}
+for k in mods keys
+  ml add {name: k, cnt: mods[k]}
+end
+for it in ml sort by cnt descending, name
+  print "  " + padr(it.name) + it.cnt as text
+end
+print ""
+print "Пропущено строк: " + skipped as text

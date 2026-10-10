@@ -1,0 +1,177 @@
+input lines: list of text
+
+function tokenize(s: text) -> list of {kind: text, val: text, pos: number}
+  toks = [] of {kind: text, val: text, pos: number}
+  i = 0
+  n = s length
+  while i < n
+    ch = s[i]
+    if "0123456789." contains ch
+      j = i
+      scanning = true
+      while scanning
+        if j < n
+          if "0123456789." contains s[j]
+            j = j + 1
+          else
+            scanning = false
+          end
+        else
+          scanning = false
+        end
+      end
+      toks add {kind: "num", val: s[i to j - 1], pos: i + 1}
+      i = j
+    else if ch == " "
+      i = i + 1
+    else if "+-*/^" contains ch
+      toks add {kind: "op", val: ch, pos: i + 1}
+      i = i + 1
+    else if ch == "("
+      toks add {kind: "lp", val: ch, pos: i + 1}
+      i = i + 1
+    else if ch == ")"
+      toks add {kind: "rp", val: ch, pos: i + 1}
+      i = i + 1
+    else
+      toks add {kind: "bad", val: ch, pos: i + 1}
+      i = i + 1
+    end
+  end
+  toks add {kind: "end", val: "", pos: n + 1}
+  return toks
+end
+
+function parseAtom(toks: list of {kind: text, val: text, pos: number}, p: number) -> {val: number, pos: number, err: text}
+  t = toks[p]
+  if t.kind == "num"
+    return {val: t.val as number, pos: p + 1, err: ""}
+  end
+  if t.kind == "lp"
+    inner = parseExpr(toks, p + 1)
+    if inner.err != ""
+      return inner
+    end
+    c = toks[inner.pos]
+    if c.kind == "rp"
+      return {val: inner.val, pos: inner.pos + 1, err: ""}
+    end
+    if c.kind == "end"
+      return {val: 0, pos: inner.pos, err: "ошибка: не закрыта скобка"}
+    end
+    return {val: 0, pos: inner.pos, err: "ошибка: ожидалось число, позиция " + c.pos as text}
+  end
+  return {val: 0, pos: p, err: "ошибка: ожидалось число, позиция " + t.pos as text}
+end
+
+function parsePower(toks: list of {kind: text, val: text, pos: number}, p: number) -> {val: number, pos: number, err: text}
+  base = parseAtom(toks, p)
+  if base.err != ""
+    return base
+  end
+  t = toks[base.pos]
+  if t.kind == "op" and t.val == "^"
+    ex = parseUnary(toks, base.pos + 1)
+    if ex.err != ""
+      return ex
+    end
+    return {val: base.val ** ex.val, pos: ex.pos, err: ""}
+  end
+  return base
+end
+
+function parseUnary(toks: list of {kind: text, val: text, pos: number}, p: number) -> {val: number, pos: number, err: text}
+  t = toks[p]
+  if t.kind == "op" and t.val == "-"
+    r = parseUnary(toks, p + 1)
+    if r.err != ""
+      return r
+    end
+    return {val: r.val * (-1), pos: r.pos, err: ""}
+  end
+  return parsePower(toks, p)
+end
+
+function parseTerm(toks: list of {kind: text, val: text, pos: number}, p: number) -> {val: number, pos: number, err: text}
+  left = parseUnary(toks, p)
+  if left.err != ""
+    return left
+  end
+  acc = left.val
+  cur = left.pos
+  while true
+    t = toks[cur]
+    if t.kind == "op" and (t.val == "*" or t.val == "/")
+      right = parseUnary(toks, cur + 1)
+      if right.err != ""
+        return right
+      end
+      if t.val == "*"
+        acc = acc * right.val
+      else
+        if right.val == 0
+          return {val: 0, pos: cur, err: "ошибка: деление на ноль"}
+        end
+        acc = acc / right.val
+      end
+      cur = right.pos
+    else
+      break
+    end
+  end
+  return {val: acc, pos: cur, err: ""}
+end
+
+function parseExpr(toks: list of {kind: text, val: text, pos: number}, p: number) -> {val: number, pos: number, err: text}
+  left = parseTerm(toks, p)
+  if left.err != ""
+    return left
+  end
+  acc = left.val
+  cur = left.pos
+  while true
+    t = toks[cur]
+    if t.kind == "op" and (t.val == "+" or t.val == "-")
+      right = parseTerm(toks, cur + 1)
+      if right.err != ""
+        return right
+      end
+      if t.val == "+"
+        acc = acc + right.val
+      else
+        acc = acc - right.val
+      end
+      cur = right.pos
+    else
+      break
+    end
+  end
+  return {val: acc, pos: cur, err: ""}
+end
+
+for line in lines
+  toks = tokenize(line)
+  bad = ""
+  for t in toks
+    if t.kind == "bad" and bad == ""
+      bad = "ошибка: неизвестный символ '" + t.val + "', позиция " + t.pos as text
+    end
+  end
+  if bad != ""
+    print bad
+  else if line trim length == 0
+    print "ошибка: пустое выражение"
+  else
+    r = parseExpr(toks, 0)
+    if r.err != ""
+      print r.err
+    else
+      fin = toks[r.pos]
+      if fin.kind != "end"
+        print "ошибка: ожидалось число, позиция " + fin.pos as text
+      else
+        print r.val as text
+      end
+    end
+  end
+end

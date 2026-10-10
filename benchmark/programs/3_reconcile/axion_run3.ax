@@ -1,0 +1,118 @@
+input a: list of {id: text, date: text, amount: text}
+input b: list of {id: text, date: text, amount: text}
+function fmt(n: number) -> text
+  sign = if n < 0 then "-" else ""
+  m = if n < 0 then n * (-1) else n
+  r = m round 2
+  whole = r floor
+  cents = ((r - whole) * 100) floor
+  pad = if cents < 10 then "0" else ""
+  return sign + whole as text + "." + pad + cents as text
+end
+function padl(s: text, w: number) -> text
+  out = s
+  while out length < w
+    out = " " + out
+  end
+  return out
+end
+da = {} of text
+aa = {} of number
+ca = {} of number
+ka = [] of text
+sa = 0
+for r in a
+  id = r.id trim upper
+  if ca contains id
+    ca[id] = ca[id] + 1
+  else
+    amt = ((r.amount split ",") join ".") as number
+    da[id] = r.date
+    aa[id] = amt
+    ca[id] = 1
+    ka add id
+    sa = sa + amt
+  end
+end
+db = {} of text
+ab = {} of number
+cb = {} of number
+kb = [] of text
+sb = 0
+for r in b
+  id = r.id trim upper
+  if cb contains id
+    cb[id] = cb[id] + 1
+  else
+    amt = ((r.amount split ",") join ".") as number
+    db[id] = r.date
+    ab[id] = amt
+    cb[id] = 1
+    kb add id
+    sb = sb + amt
+  end
+end
+same = [] of text
+diffs = [] of text
+onlya = [] of text
+onlyb = [] of text
+for id in ka sort
+  if db contains id
+    if da[id] == db[id] and aa[id] == ab[id]
+      same add id
+    else if aa[id] != ab[id]
+      d = if aa[id] > ab[id] then aa[id] - ab[id] else ab[id] - aa[id]
+      diffs add ("  " + id + "  сумма: " + fmt(aa[id]) + " / " + fmt(ab[id]) + " (разница " + fmt(d) + ")")
+    else
+      diffs add ("  " + id + "  дата: " + da[id] + " / " + db[id])
+    end
+  else
+    onlya add ("  " + id + "  " + da[id] + padl(fmt(aa[id]), 9))
+  end
+end
+for id in kb sort
+  if not (da contains id)
+    onlyb add ("  " + id + "  " + db[id] + padl(fmt(ab[id]), 9))
+  end
+end
+print "Совпало: " + same length as text
+if same length > 0
+  print "  " + (same join ", ")
+end
+print ""
+print "Расхождения: " + diffs length as text
+for line in diffs
+  print line
+end
+print ""
+print "Только в A: " + onlya length as text
+for line in onlya
+  print line
+end
+print ""
+print "Только в B: " + onlyb length as text
+for line in onlyb
+  print line
+end
+print ""
+dupa = [] of text
+for id in ka sort
+  if ca[id] > 1
+    dupa add (id + " (" + ca[id] as text + " раза)")
+  end
+end
+if dupa length > 0
+  print "Дубликаты в A: " + (dupa join ", ")
+  print ""
+end
+dupb = [] of text
+for id in kb sort
+  if cb[id] > 1
+    dupb add (id + " (" + cb[id] as text + " раза)")
+  end
+end
+if dupb length > 0
+  print "Дубликаты в B: " + (dupb join ", ")
+  print ""
+end
+print "Итого A: " + fmt(sa) + "   Итого B: " + fmt(sb) + "   Разница: " + fmt(sa - sb)
