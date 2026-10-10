@@ -97,6 +97,12 @@ and the Python programs were not asked to validate their input.
 - A weaker model (Claude Haiku) solved 3 of 5 tasks in Axion against 5 of 5 in Python.
 - It has not been attacked by security specialists. No hole is known; that is not a proof.
 
+## Who made this
+
+I'm Egor, I'm 15. I came up with Axion in a couple of weeks. The syntax, the tests and the
+decisions about how it works are mine; Claude helped me write the code. I'd be glad to get
+an honest review and criticism.
+
 ## Feedback
 
 This is a first release to see whether anyone needs it. One question: **how do you run code that
